@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="2000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
     <children>
         <GridPane layoutX="544.0" layoutY="520.0" prefHeight="66.0" prefWidth="242.0">
             <children>
@@ -34,11 +34,11 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
         </GridPane>
-        <GridPane layoutX="22.0" layoutY="48.0" prefHeight="319.0" prefWidth="212.0">
+        <GridPane layoutX="22.0" layoutY="58.0" prefHeight="309.0" prefWidth="285.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="45.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="121.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="47.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="76.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="110.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="26.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
@@ -47,87 +47,56 @@
                 <RowConstraints maxHeight="277.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="337.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="392.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="392.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="442.0" minHeight="0.0" prefHeight="27.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Slider fx:id="option_a" blockIncrement="1.0" max="10.0" min="1.0" value="2.0" GridPane.columnIndex="1" />
-                <Label prefHeight="16.0" prefWidth="26.0" text="a" textAlignment="CENTER">
+                <Slider fx:id="slider_alfa" blockIncrement="1.0" max="10.0" min="1.0" value="2.0" GridPane.columnIndex="1" />
+                <Label prefHeight="16.0" prefWidth="43.0" text="alfa" textAlignment="CENTER">
                     <tooltip>
                         <Tooltip text="Initial pheromone value at each edge." />
                     </tooltip></Label>
-                <Slider fx:id="option_m" blockIncrement="1.0" min="1.0" value="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Slider fx:id="option_alpha" blockIncrement="1.0" max="5.0" value="2.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label prefHeight="16.0" prefWidth="26.0" text="m" textAlignment="CENTER" GridPane.rowIndex="1">
+                <Slider fx:id="slider_beta" blockIncrement="1.0" min="1.0" value="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Slider fx:id="slider_pferomon" blockIncrement="1.0" max="5.0" value="2.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label prefHeight="16.0" prefWidth="47.0" text="beta" textAlignment="CENTER" GridPane.rowIndex="1">
                     <tooltip>
                         <Tooltip text="Number of ants." />
                     </tooltip></Label>
-                <Label prefHeight="16.0" prefWidth="46.0" text="beta" textAlignment="CENTER" GridPane.rowIndex="3">
+                <Label prefHeight="16.0" prefWidth="46.0" text="Rho" textAlignment="CENTER" GridPane.rowIndex="3">
                     <tooltip>
                         <Tooltip text="Quotient, defines nodes visibility to each other." />
                     </tooltip></Label>
-                <Label prefHeight="16.0" prefWidth="52.0" text="alpha" textAlignment="CENTER" GridPane.rowIndex="2">
+                <Label prefHeight="16.0" prefWidth="79.0" text="pocz. ferom" textAlignment="CENTER" GridPane.rowIndex="2">
                     <tooltip>
                         <Tooltip text="Quotient: How pheromone is important, when ant selects next node?" />
                     </tooltip></Label>
-                <Label prefHeight="16.0" prefWidth="26.0" text="Q" textAlignment="CENTER" GridPane.rowIndex="4">
+                <Label prefHeight="16.0" prefWidth="26.0" text="q0" textAlignment="CENTER" GridPane.rowIndex="4">
                     <tooltip>
                         <Tooltip text="Number of pheromone, sprayed by each ant." />
                     </tooltip></Label>
-                <Label prefHeight="16.0" prefWidth="26.0" text="ro" textAlignment="CENTER" GridPane.rowIndex="5">
+                <Label prefHeight="16.0" prefWidth="98.0" text="ilosc mrowek" textAlignment="CENTER" GridPane.rowIndex="5">
                     <tooltip>
                         <Tooltip text="Quotient, defines pheromone disappearance. " />
                     </tooltip></Label>
-                <Label prefHeight="16.0" prefWidth="42.0" text="Cmax" textAlignment="CENTER" GridPane.rowIndex="6">
-                    <tooltip>
-                        <Tooltip text="Number of algorithm iterations." />
-                    </tooltip></Label>
-                <Slider fx:id="option_beta" blockIncrement="1.0" max="5.0" value="2.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <Slider fx:id="option_ro" blockIncrement="1.0" max="1.0" value="0.5" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <Slider fx:id="option_Cmax" blockIncrement="1.0" min="2.0" value="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <Slider fx:id="option_Q" blockIncrement="1.0" min="10.0" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <Label fx:id="value_a" text="0" GridPane.columnIndex="2" />
-                <Label fx:id="value_m" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <Label fx:id="value_alpha" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                <Label fx:id="value_beta" text="0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                <Label fx:id="value_Q" text="0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                <Label fx:id="value_ro" text="0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                <Label fx:id="value_Cmax" text="0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                <Separator prefHeight="9.0" prefWidth="229.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                <Separator prefHeight="9.0" prefWidth="229.0" GridPane.rowIndex="7" />
-                <Separator prefHeight="9.0" prefWidth="229.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                <Label text="min" GridPane.rowIndex="8">
-                    <tooltip>
-                        <Tooltip text="Minimum pheromone value (for MMAS)." />
-                    </tooltip>
+                <Slider fx:id="slider_rho" blockIncrement="1.0" max="5.0" value="2.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Slider fx:id="slider_mrowki" blockIncrement="1.0" max="1.0" value="0.5" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Slider fx:id="slider_q0" blockIncrement="1.0" min="10.0" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label fx:id="wartosc_alfa" text="0" GridPane.columnIndex="2" />
+                <Label fx:id="wartosc_beta" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Label fx:id="wartosc_pferomon" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label fx:id="wartosc_rho" text="0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <Label fx:id="wartosc_q0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <Label fx:id="wartosc_mrowki" text="0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                <Separator prefHeight="9.0" prefWidth="229.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Separator prefHeight="9.0" prefWidth="229.0" GridPane.rowIndex="6" />
+                <Separator prefHeight="9.0" prefWidth="229.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                <Label text="maxmasa plecaka" GridPane.rowIndex="7">
                 </Label>
-                <Label text="max" GridPane.rowIndex="9">
-                    <tooltip>
-                        <Tooltip text="Maximum pheromone value (for MMAS)." />
-                    </tooltip>
-                </Label>
-                <Label fx:id="value_min" text="0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                <Label fx:id="value_max" text="0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                <Label text="w" GridPane.rowIndex="10">
-                    <tooltip>
-                        <Tooltip text="Number of best ants (for Rank-based AS)." />
-                    </tooltip>
-                </Label>
-                <Label fx:id="value_w" text="0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                <Label text="q0" GridPane.rowIndex="11">
-                    <tooltip>
-                        <Tooltip text="Exploration/exploitation quotient (for Ant Colony System)." />
-                    </tooltip>
-                </Label>
-                <Label fx:id="value_q0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-                <Slider fx:id="option_min" max="0.002" value="5.0E-4" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                <Slider fx:id="option_max" max="1.0" value="0.35" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                <Slider fx:id="option_w" min="1.0" value="10.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                <Slider fx:id="option_q0" max="1.0" value="0.5" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                <Label fx:id="wartosc_masa" text="0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                <Slider fx:id="slider_masa" max="0.002" value="5.0E-4" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ChoiceBox fx:id="choicebox_feromon" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="jaki feromon" GridPane.rowIndex="8" />
             </children>
         </GridPane>
         <GridPane layoutX="255.0" layoutY="520.0" prefHeight="66.0" prefWidth="258.0">
@@ -148,7 +117,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
         </GridPane>
-        <Pane layoutX="255.0" layoutY="48.0" prefHeight="456.0" prefWidth="525.0" style="-fx-background-color: #fafafa;">
+        <Pane layoutX="319.0" layoutY="61.0" prefHeight="456.0" prefWidth="525.0" style="-fx-background-color: #fafafa;">
             <children>
                 <Canvas fx:id="canvas" height="462.0" layoutY="-4.0" width="531.0" />
             </children>
