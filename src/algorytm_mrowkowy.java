@@ -192,9 +192,10 @@ public class algorytm_mrowkowy {
         		m.wybierz_nastepny_wierzcholek();
         		odwiedzinki.add(m.obecny);
         		m.plecak.dodaj_przedmiot(m.obecny.przedmiot);
-        		
+        		i=0;
                 for (mrowka t : mrowki)
-                {
+                { i++;
+                if(odwiedzinki.size()>i)
                 	wierzcholek.oblicz_atrakcyjnosc_staly_odwiedziny_mrowki(odwiedzinki.get(i));
                 	
                 	
