@@ -43,7 +43,7 @@ public class algorytm_mrowkowy {
         }
 
 
-        //wykonaj();
+        wykonaj();
         feromonsta³y();
 
     }
