@@ -207,7 +207,7 @@ public class algorytm_mrowkowy {
         }i=0;
         for (mrowka m : mrowki)
         {
-        System.out.println("Mrówka "+i+" ma plecak o wartoœci"+m.plecak.policz_wartosc_plecaka());i++;
+        System.out.println("Mrówka "+i+" ma plecak o wartoœci"+m.plecak.policz_wartosc_plecaka()+""+m.plecak.przedmioty_w_plecaku);i++;
         }
         
 }
