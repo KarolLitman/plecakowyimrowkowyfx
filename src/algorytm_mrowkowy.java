@@ -2,15 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+@SuppressWarnings({ "unused", "unused" })
 public class algorytm_mrowkowy {
 
 
     static public double poczatkowy_feromon = 0.01;
-    static public double Rho = 0.10;
-    static public double Beta = 1;
-    static public double Alpha = 1;
-    static public double Q0 = 0.5;
+    static public double Rho = 0.10;//wyparowywanie
+    static public double Beta = 1;//Wspó³czynni podró¿y
+    static public double Alpha = 1;//Wspó³czynnik eksplatacji najlepszego ¿ród³a
+    static public double Q0 = 0.5;//slad feromonowy
     static public int ilosc_mrowek = 500;
+	public static double q0=0.20;
     
     
     
@@ -44,7 +46,7 @@ public class algorytm_mrowkowy {
         wykonaj();
 
     }
-
+   
 
     void wykonaj() throws Exception {
         //todo: zrobic fermon staly,sredni i cykliczny
@@ -121,7 +123,20 @@ public class algorytm_mrowkowy {
             w.feromon = (1 - algorytm_mrowkowy.Rho) * (w.feromon) + algorytm_mrowkowy.Rho * algorytm_mrowkowy.poczatkowy_feromon;
         }
     }
-
+    public Boolean czy_jest_jakas_zywa_mrowka() {
+    	boolean ta = false;
+    	        
+    	for (mrowka m : mrowki)
+        { 
+    		for(wierzcholek w : m.wszystkie_wierzcholki) {
+    		if(m.plecak.czy_wystarczajaco_miejsca(w.przedmiot)) {
+    			ta= true;
+    		}
+        }
+    		}
+		return ta;
+    	 
+    }
 
     public void Reset()
     {
@@ -132,13 +147,55 @@ public class algorytm_mrowkowy {
             }
     }
 
-
-
-
-
-
-
+    @SuppressWarnings("unused")
+	void feromonsta³y() throws Exception {
+    	double maksymalna_wartosc = Double.MIN_VALUE;
+        double minimalna_wartosc = Double.MAX_VALUE;
+        double srednia_wartosc = 0;
+        double tmp;
+        ArrayList<wierzcholek> odwiedzinki=new ArrayList<>();
+        Random r=new Random();
+        for (mrowka m : mrowki)
+        {
+        	
+            m.odwiedz_wierzcholek(lista_wierzcholkow.get(r.nextInt(lista_wierzcholkow.size())));//
+           odwiedzinki.add(m.obecny);
+        }
+        int i=0;
+        for (mrowka m : mrowki)
+        { 
+        	wierzcholek.oblicz_atrakcyjnosc_staly_odwiedziny_mrowki(odwiedzinki.get(i));
+        	i++;
+        	
+        }
+        for(wierzcholek w: lista_wierzcholkow) {
+        	wierzcholek.oblicz_atrakcyjnosc_staly(w);
+        }
+        while(czy_jest_jakas_zywa_mrowka()) {
+        	for (mrowka m : mrowki)
+            {
+        		m.wybierz_nastepny_wierzcholek();
+        		odwiedzinki.add(m.obecny);
+        		m.plecak.dodaj_przedmiot(m.obecny.przedmiot);
+        		i=0;
+                for (mrowka t : mrowki)
+                { 
+                	wierzcholek.oblicz_atrakcyjnosc_staly_odwiedziny_mrowki(odwiedzinki.get(i));
+                	i++;
+                	
+                }
+                for(wierzcholek w: lista_wierzcholkow) {
+                	wierzcholek.oblicz_atrakcyjnosc_staly(w);
+                }
+            }
+        }i=0;
+        for (mrowka m : mrowki)
+        {
+        System.out.println("Mrówka "+i+" ma plecak o wartoœci"+m.plecak.policz_wartosc_plecaka());i++;
+        }
+        
 }
 
 
 
+}

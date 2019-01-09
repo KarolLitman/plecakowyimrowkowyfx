@@ -50,11 +50,6 @@ class mrowka {
         if (plecak.czy_wystarczajaco_miejsca(w.przedmiot)) //sprawdzenie bo pierwszy wierzcholek jest losowany...
         {
 //            System.out.println("przed odwiedzeniem "+plecak.pozostala_masa);
-
-
-
-
-            plecak.pozostala_masa-=w.przedmiot.getMasa();
             plecak.dodaj_przedmiot(w.przedmiot);
 //            System.out.println("po odwiedzeniu "+plecak.pozostala_masa);
 
@@ -89,14 +84,14 @@ class mrowka {
                 {
 //                    System.out.println("poz masa"+plecak.pozostala_masa);
 //                    System.out.println("czy_wyst "+w.przedmiot.masa);
-
+                	
                     dostepne_wierzcholki.add(w);
                 }
             }
         }
 
 
-        if (random.nextDouble() > algorytm_mrowkowy.Q0)
+        if (random.nextDouble() > algorytm_mrowkowy.q0)
         {
 
             int count = dostepne_wierzcholki.size();
@@ -181,7 +176,7 @@ class mrowka {
 //       odwiedzone_wierzcholki.clear();
     }
 
-
+    
 
 
 

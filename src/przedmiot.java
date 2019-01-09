@@ -5,6 +5,7 @@ public class przedmiot {
     private SimpleStringProperty nazwa;
     private SimpleDoubleProperty masa;
     private SimpleDoubleProperty cena;
+    
 
     przedmiot(String nazwa, double masa, double cena) {
 
@@ -41,6 +42,9 @@ public class przedmiot {
     public String toString(){
         return nazwa+"";
     }
+
+	
+	
 
 }
 

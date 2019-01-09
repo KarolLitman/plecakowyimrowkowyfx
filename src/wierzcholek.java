@@ -20,7 +20,14 @@ class wierzcholek {
     {
         return w.feromon * Math.pow((w.przedmiot.getCena()/w.przedmiot.getMasa()), algorytm_mrowkowy.Beta);
     }
-
+    public static double oblicz_atrakcyjnosc_staly(wierzcholek w)
+    {
+        return (1-algorytm_mrowkowy.Rho)*(Math.pow(w.feromon,algorytm_mrowkowy.Alpha)+Math.pow((w.przedmiot.getCena()/w.przedmiot.getMasa()), algorytm_mrowkowy.Beta));
+    }	
+    public static double oblicz_atrakcyjnosc_staly_odwiedziny_mrowki(wierzcholek w)
+    {
+        return w.feromon+algorytm_mrowkowy.Q0;
+    }	
 
 
 
