@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@SuppressWarnings({ "unused", "unused" })
+@SuppressWarnings({ "unused" })
 public class algorytm_mrowkowy {
 
 
@@ -43,7 +43,8 @@ public class algorytm_mrowkowy {
         }
 
 
-        wykonaj();
+        //wykonaj();
+        feromonsta³y();
 
     }
    
@@ -160,8 +161,7 @@ public class algorytm_mrowkowy {
             }
     }
 
-    @SuppressWarnings("unused")
-	void feromonsta³y() throws Exception {
+    void feromonsta³y() throws Exception {
     	double maksymalna_wartosc = Double.MIN_VALUE;
         double minimalna_wartosc = Double.MAX_VALUE;
         double srednia_wartosc = 0;
