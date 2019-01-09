@@ -15,7 +15,7 @@ class problem_plecakowy{
     }
 double czy_miejsce_wplecaku() {
 	pozostala_masa=pierwotna_masa;
-	for(int i = 0;i<=przedmioty_w_plecaku.size();i++) {
+	for(int i = 0;i<przedmioty_w_plecaku.size();i++) {
 		pozostala_masa-=przedmioty_w_plecaku.get(i).getMasa();
 	}
 	return pozostala_masa;
