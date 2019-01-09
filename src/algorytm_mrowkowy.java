@@ -189,7 +189,7 @@ public class algorytm_mrowkowy {
             {odwiedzinki.clear();
         		if(czy_jest_mrowka_zywa(m)) {
 
-        		m.wybierz_nastepny_wierzcholek();
+        		m.wybierz_nastepny_wierzcholek(m);
         		odwiedzinki.add(m.obecny);
         		m.plecak.dodaj_przedmiot(m.obecny.przedmiot);
         		i=0;
