@@ -137,6 +137,19 @@ public class algorytm_mrowkowy {
 		return ta;
     	 
     }
+    public Boolean czy_jest_mrowka_zywa(mrowka m) {
+    	boolean ta = false;
+    	        
+    	
+    		for(wierzcholek w : m.wszystkie_wierzcholki) {
+    		if(m.plecak.czy_wystarczajaco_miejsca(w.przedmiot)) {
+    			ta= true;
+    		}
+        }
+    		
+		return ta;
+    	 
+    }
 
     public void Reset()
     {
@@ -173,7 +186,9 @@ public class algorytm_mrowkowy {
         }
         while(czy_jest_jakas_zywa_mrowka()) {
         	for (mrowka m : mrowki)
-            {
+            {odwiedzinki.clear();
+        		if(czy_jest_mrowka_zywa(m)) {
+
         		m.wybierz_nastepny_wierzcholek();
         		odwiedzinki.add(m.obecny);
         		m.plecak.dodaj_przedmiot(m.obecny.przedmiot);
@@ -195,7 +210,6 @@ public class algorytm_mrowkowy {
         }
         
 }
-
-
+	} 
 
 }
