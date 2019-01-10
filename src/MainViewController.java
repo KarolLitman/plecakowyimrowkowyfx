@@ -37,7 +37,20 @@ public class MainViewController implements Initializable{
     public Slider slider_masa;
     public ChoiceBox choicebox_feromon;
 
+    @FXML
+    private TableView<?> tabelaprzedmiotow1;
 
+    @FXML
+    private TableColumn<?, ?> colnazwa1;
+
+    @FXML
+    private TableColumn<?, ?> colmasa1;
+
+    @FXML
+    private TableColumn<?, ?> colcena1;
+
+    @FXML
+    
     public void initialize(URL location, ResourceBundle resources) {
 
         //suwaki
