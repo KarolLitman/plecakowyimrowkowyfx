@@ -50,6 +50,11 @@ class mrowka {
         if (plecak.czy_wystarczajaco_miejsca(w.przedmiot)) //sprawdzenie bo pierwszy wierzcholek jest losowany...
         {
 //            System.out.println("przed odwiedzeniem "+plecak.pozostala_masa);
+
+
+
+
+            plecak.pozostala_masa-=w.przedmiot.getMasa();
             plecak.dodaj_przedmiot(w.przedmiot);
 //            System.out.println("po odwiedzeniu "+plecak.pozostala_masa);
 
@@ -65,78 +70,6 @@ class mrowka {
 
 
 
-
-
-    public wierzcholek wybierz_nastepny_wierzcholek(mrowka m)
-    {
-        Random random=new Random();
-
-        List<wierzcholek> dostepne_wierzcholki = new ArrayList<>();
-
-//        System.out.println("wejscie do funkcji wybierz");
-
-        for (wierzcholek w : wszystkie_wierzcholki)
-        {
-
-            if (!m.odwiedzone_wierzcholki.contains(w))
-            {
-                if (m.plecak.czy_wystarczajaco_miejsca(w.przedmiot))
-                {
-//                    System.out.println("poz masa"+plecak.pozostala_masa);
-//                    System.out.println("czy_wyst "+w.przedmiot.masa);
-                	
-                    dostepne_wierzcholki.add(w);
-                }
-            }
-        }
-
-
-        if (random.nextDouble() > algorytm_mrowkowy.q0)
-        {
-
-            int count = dostepne_wierzcholki.size();
-            double totalAtr = 0;
-            double[] atrMap = new double[count];
-
-
-            wierzcholek tmpNode = null;
-            for (int i = 0; i < count; i++)
-            {
-                tmpNode = dostepne_wierzcholki.get(i);
-                totalAtr += tmpNode.oblicz_atrakcyjnosc(tmpNode);
-                atrMap[i] = totalAtr;
-            }
-
-            double rand = random.nextDouble() * totalAtr;
-            for (int i = 0; i < count; i++)
-            {
-                if (rand < atrMap[i])
-                {
-                	 m.odwiedzone_wierzcholki.add(dostepne_wierzcholki.get(i));
-                    return dostepne_wierzcholki.get(i);
-                }
-            }
-            return null;
-        }
-        else
-        {
-            if (dostepne_wierzcholki.size() == 0)
-                return null;
-            wierzcholek tmpNode = dostepne_wierzcholki.get(0);
-            double tmp, tmpMax = Double.MIN_VALUE;
-            for(wierzcholek w : dostepne_wierzcholki)
-            {
-                tmp = w.oblicz_atrakcyjnosc(w);
-                if(tmp > tmpMax)
-                {
-                    tmpMax = tmp;
-                    tmpNode = w;
-                }
-            }
-            m.odwiedzone_wierzcholki.add(tmpNode);
-            return tmpNode;
-        }
-    }
 
 
     public wierzcholek wybierz_nastepny_wierzcholek()
@@ -156,14 +89,14 @@ class mrowka {
                 {
 //                    System.out.println("poz masa"+plecak.pozostala_masa);
 //                    System.out.println("czy_wyst "+w.przedmiot.masa);
-                	
+
                     dostepne_wierzcholki.add(w);
                 }
             }
         }
 
 
-        if (random.nextDouble() > algorytm_mrowkowy.q0)
+        if ((random.nextDouble() > algorytm_mrowkowy.q0) || (algorytm_mrowkowy.system>0))
         {
 
             int count = dostepne_wierzcholki.size();
@@ -175,7 +108,12 @@ class mrowka {
             for (int i = 0; i < count; i++)
             {
                 tmpNode = dostepne_wierzcholki.get(i);
+
+                if(algorytm_mrowkowy.system==0)
                 totalAtr += tmpNode.oblicz_atrakcyjnosc(tmpNode);
+                else
+                totalAtr += tmpNode.oblicz_atrakcyjnosc_sysmrowkowy(tmpNode);
+
                 atrMap[i] = totalAtr;
             }
 
@@ -184,7 +122,6 @@ class mrowka {
             {
                 if (rand < atrMap[i])
                 {
-                	 odwiedzone_wierzcholki.add(dostepne_wierzcholki.get(i));
                     return dostepne_wierzcholki.get(i);
                 }
             }
@@ -205,11 +142,9 @@ class mrowka {
                     tmpNode = w;
                 }
             }
-            odwiedzone_wierzcholki.add(tmpNode);
             return tmpNode;
         }
     }
-
 
 
 
@@ -237,6 +172,8 @@ class mrowka {
         {
 //            System.out.println("Nastepne "+w);
             this.odwiedz_wierzcholek(w);
+
+
         }
 
         System.out.println(plecak.przedmioty_w_plecaku);
@@ -246,12 +183,35 @@ class mrowka {
 //        System.out.println(plecak);
     }
 
+    public boolean run_mrowkowy() throws Exception {
+        wierzcholek w;
+        while ((w = wybierz_nastepny_wierzcholek()) != null)
+        {
+//            System.out.println("Nastepne "+w);
+            this.odwiedz_wierzcholek(w);
+
+            if(algorytm_mrowkowy.system==1)
+                w.delta_tau+=algorytm_mrowkowy.Q;
+            else if (algorytm_mrowkowy.system==2)
+                w.delta_tau+=algorytm_mrowkowy.Q/w.odleglosc();
+
+                return false;
+        }
+
+        System.out.println(plecak.przedmioty_w_plecaku);
+//        System.out.println(plecak.wszystkie_przedmioty);
+        System.out.println(rozwiazanie());
+
+        return true;
+//        System.out.println(plecak);
+    }
+
     public void reset()
     {
 //       odwiedzone_wierzcholki.clear();
     }
 
-    
+
 
 
 

@@ -40,7 +40,7 @@ public class przedmiot {
     }
 
     public String toString(){
-        return nazwa+"";
+        return nazwa.get() +"[waga:"+ masa.get()+"]";
     }
 
 	
