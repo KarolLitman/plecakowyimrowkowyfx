@@ -106,7 +106,7 @@ public class MainViewController implements Initializable{
             aw =new algorytm_mrowkowy(p);
 
             for(wierzcholek w : aw.lista_wierzcholkow){
-w.punkt=new Point2D(Math.random() * sizex, Math.random() * sizey);
+            w.punkt=new Point2D(Math.random() * sizex, Math.random() * sizey);
 
                     nodes.add(w.punkt);
 draw_nodes();

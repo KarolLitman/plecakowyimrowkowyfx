@@ -31,7 +31,6 @@ static public int iteracje = 0;
 
 
 
-
     void generuj_feromon(int sposob){
 //        https://www.ii.pwr.edu.pl/~kwasnicka/lindaabrichwww/description.html
         switch (sposob) {
@@ -197,7 +196,7 @@ if (rozw>mrowka.wynik_max){
         mrowka.iteracje++;
 
 
-//        System.out.println(plecak);
+        //System.out.println(plecak);
     }
 
     public boolean run_mrowkowy() throws Exception {
@@ -216,7 +215,7 @@ if (rozw>mrowka.wynik_max){
         }
 
         System.out.println(plecak.przedmioty_w_plecaku);
-//        System.out.println(plecak.wszystkie_przedmioty);
+//      System.out.println(plecak.wszystkie_przedmioty);
 
 
         double rozw=rozwiazanie();
