@@ -47,6 +47,8 @@ public class MainViewController implements Initializable{
     public Slider slider_masa;
     public ChoiceBox choicebox_feromon;
 
+
+
     @FXML
     private TableView<?> tabelaprzedmiotow1;
 
@@ -82,6 +84,7 @@ public class MainViewController implements Initializable{
 
 
 
+        lista.addAll(p.wszystkie_przedmioty);
 
         for (int x = 0; x < p.wszystkie_przedmioty.size(); x++) {
             nodes.add(new Point2D(Math.random() * sizex, Math.random() * sizey));
@@ -118,7 +121,7 @@ public class MainViewController implements Initializable{
         wartosc_rho.setText(String.format("%.2f", slider_rho.getValue()));
         wartosc_q0.setText(String.format("%.2f", slider_q0.getValue()));
         wartosc_mrowki.setText(String.format("%d", (int) slider_mrowki.getValue()));
-        wartosc_masa.setText(String.format("%.2f", slider_masa.getValue()));
+        wartosc_masa.setText(String.format("%d", (int)slider_masa.getValue()));
 
 
         //choicebox
@@ -208,26 +211,26 @@ public class MainViewController implements Initializable{
         });
 
 
-//        slider_mrowki.valueProperty().addListener(new ChangeListener<Number>() {
-//            public void changed(ObservableValue<? extends Number> ov,
-//                                Number old_val, Number new_val) {
-//                wartosc_mrowki.setText(String.format("%d", new_val));
-//            }
-//        });
-//
-//        slider_mrowki.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Boolean> obs, Boolean wasChanging, Boolean isNowChanging) {
-////                if (! isNowChanging)
-////                    runonupdate();
-//            }
-//        });
+        slider_mrowki.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                                Number old_val, Number new_val) {
+                wartosc_mrowki.setText(String.format("%d", new_val.intValue()));
+            }
+        });
+
+        slider_mrowki.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean wasChanging, Boolean isNowChanging) {
+//                if (! isNowChanging)
+//                    runonupdate();
+            }
+        });
 
 
         slider_masa.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
-                wartosc_masa.setText(String.format("%.2f", new_val));
+                wartosc_masa.setText(String.format("%d", new_val.intValue()));
             }
         });
 
@@ -265,8 +268,8 @@ public class MainViewController implements Initializable{
         tabelaprzedmiotow.setItems(lista);
     }
 
+
     ObservableList<przedmiot> lista = FXCollections.observableArrayList(
-            new przedmiot("hehe", 10, 50)
     );
 
 
@@ -302,6 +305,8 @@ public class MainViewController implements Initializable{
             gc.setStroke(Color.BLUE);
             gc.setLineWidth(1);
             gc.strokeOval(node.getX(), node.getY(), radius, radius);
+//            gc.
+
         }
     }
 
