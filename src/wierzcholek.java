@@ -1,4 +1,6 @@
-class wierzcholek {
+import java.util.Objects;
+
+class wierzcholek implements Comparable<wierzcholek>{
     Boolean czy_odwiedzony;
     Double feromon;
     przedmiot przedmiot;
@@ -13,7 +15,7 @@ class wierzcholek {
 
 
     public String toString(){
-        return przedmiot.getNazwa()+" "+feromon;
+        return przedmiot.getNazwa()+" stosunek: "+this.przedmiot.stosunek() + "feromon :"+feromon;
     }
 
 
@@ -27,14 +29,31 @@ class wierzcholek {
 
     public double oblicz_atrakcyjnosc(wierzcholek w)
     {
-        return w.feromon * Math.pow((w.przedmiot.getMasa()/w.przedmiot.getCena()), algorytm_mrowkowy.Beta);
+//        System.out.println(w.przedmiot+" "+(w.feromon * Math.pow((w.przedmiot.getCena()/w.przedmiot.getMasa()), algorytm_mrowkowy.Beta)));
+        return w.feromon * Math.pow((w.przedmiot.getCena()/w.przedmiot.getMasa()), algorytm_mrowkowy.Beta);
     }
 
     public double oblicz_atrakcyjnosc_sysmrowkowy(wierzcholek w)
     {
-        return Math.pow(w.feromon,algorytm_mrowkowy.Alpha) * Math.pow((w.przedmiot.getMasa()/w.przedmiot.getCena()), algorytm_mrowkowy.Beta);
+        return Math.pow(w.feromon,algorytm_mrowkowy.Alpha) * Math.pow((w.przedmiot.getCena()/w.przedmiot.getMasa()), algorytm_mrowkowy.Beta);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        wierzcholek that = (wierzcholek) o;
+        return Objects.equals(przedmiot, that.przedmiot);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(przedmiot);
+    }
+
+    public int compareTo(wierzcholek w) {
+        return -1*this.przedmiot.stosunek().compareTo(w.przedmiot.stosunek());
+    }
 
 
 }

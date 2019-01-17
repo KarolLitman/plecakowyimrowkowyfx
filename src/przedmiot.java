@@ -40,7 +40,12 @@ public class przedmiot {
     }
 
     public String toString(){
-        return nazwa.get() +"[waga:"+ masa.get()+"]";
+//        return nazwa.get() +"[waga:"+ masa.get()+" cena:"+cena.get()+ "stosunek: "+(cena.get()/masa.get())+"]";
+        return nazwa.get() + " "+(cena.get()/masa.get());
+    }
+
+    public Double stosunek(){
+        return cena.get()/masa.get();
     }
 
 	

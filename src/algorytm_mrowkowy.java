@@ -5,14 +5,19 @@ import java.util.Random;
 public class algorytm_mrowkowy {
 
 
-    static public double poczatkowy_feromon = 0.001;
-    static public double Rho = 0.4;
+    static public double poczatkowy_feromon = 0.01;
+    static public double Rho = 0.001;
     static public double Beta = 5;
     static public double Alpha = 1;
-    static public double q0 = 0.1;
-    static public int ilosc_mrowek = 10;
-    static public int system=0;
+    static public double q0 = 0.01;
+    static public int ilosc_mrowek = 5;
+    static public int system=1;
+    static public int ilosc_cykli=1;
     //s.mrowiskowy ACS 0
+
+
+
+
 
 
     //s.mrowkowy f. staly 1
@@ -33,6 +38,28 @@ public class algorytm_mrowkowy {
 
 
     algorytm_mrowkowy(problem_plecakowy pp) throws Exception {
+
+
+        if(algorytm_mrowkowy.ilosc_mrowek<1) {
+            throw new Exception("Nieprawidowy liczba mrowek");
+        }
+        else if(algorytm_mrowkowy.poczatkowy_feromon<=0) {
+            throw new Exception("Nieprawidowy poczatkowy feromon ");
+        }
+        else if(algorytm_mrowkowy.Beta<0) {
+            throw new Exception("Nieprawidowy liczba Beta ");
+        }
+        else if(algorytm_mrowkowy.Rho<0 || algorytm_mrowkowy.Rho>1) {
+            throw new Exception("Nieprawidowy liczba Rho");
+        }
+        else if(algorytm_mrowkowy.Alpha<0 || algorytm_mrowkowy.Alpha>1) {
+            throw new Exception("Nieprawidowy liczba Alpha");
+        }
+        else if(algorytm_mrowkowy.q0<0 || algorytm_mrowkowy.q0>1) {
+            throw new Exception("Nieprawidowy liczba q0");
+        }
+
+
 
         this.pp=pp;
 
@@ -57,7 +84,7 @@ else
 wykonaj_mrowkowy();
 
 
-System.out.println(lista_wierzcholkow);
+//System.out.println(lista_wierzcholkow);
 //System.out.println("Wartosc max: "+mrowka.wynik_max);
 //System.out.println("Wartosc srednia: "+ (mrowka.wynik_srednia/algorytm_mrowkowy.ilosc_mrowek));
 //System.out.println(mrowka.iteracje);
@@ -65,19 +92,21 @@ System.out.println(lista_wierzcholkow);
 
 
     void wykonaj() throws Exception {
-        //todo: zrobic fermon staly,sredni i cykliczny
 
         double maksymalna_wartosc = Double.MIN_VALUE;
         double minimalna_wartosc = Double.MAX_VALUE;
-        double srednia_wartosc = 0;
+        double srednia_wartosc_cyklu = 0;
+        double najlepsze_rozwiazanie = 0;
+
+        int iteracja=0;
         double tmp;
 
         Random r=new Random();
 
 
         //cykle
-        for(int i=0;i<10;i++) {
-            srednia_wartosc=0;
+        for(int i=0;i<algorytm_mrowkowy.ilosc_cykli;i++) {
+            srednia_wartosc_cyklu=0;
             maksymalna_wartosc=0;
             minimalna_wartosc=0;
             for (mrowka m : mrowki) {
@@ -92,7 +121,7 @@ System.out.println(lista_wierzcholkow);
 
                 tmp = m.rozwiazanie();
 
-                srednia_wartosc += tmp;
+                srednia_wartosc_cyklu += tmp;
                 if (tmp < minimalna_wartosc) {
                     minimalna_wartosc = tmp;
                 }
@@ -104,7 +133,7 @@ System.out.println(lista_wierzcholkow);
             }
 
 
-            srednia_wartosc = srednia_wartosc / algorytm_mrowkowy.ilosc_mrowek;
+            srednia_wartosc_cyklu = srednia_wartosc_cyklu / algorytm_mrowkowy.ilosc_mrowek;
 
             if (this.najlepsza_sciezka < maksymalna_wartosc) {
                 this.najlepsza_sciezka = maksymalna_wartosc;
@@ -112,10 +141,17 @@ System.out.println(lista_wierzcholkow);
 
             globalny_feromon(najlepsza_mrowka);
 
-            System.out.println("Srednia wartosc z cyklu "+srednia_wartosc);
+            System.out.println("Srednia wartosc z cyklu "+srednia_wartosc_cyklu);
             System.out.println("Najlepsze rozw "+najlepsza_mrowka.rozwiazanie());
 
+            if(najlepsze_rozwiazanie<najlepsza_mrowka.rozwiazanie()){
+                najlepsze_rozwiazanie=najlepsza_mrowka.rozwiazanie();
+                iteracja=i;
+            }
+
+
         }
+        System.out.println("Najlepsze rozwiazanie "+ najlepsze_rozwiazanie+" cykl nr: "+iteracja);
 
     }
 
@@ -125,10 +161,9 @@ System.out.println(lista_wierzcholkow);
 
     void wykonaj_mrowkowy() throws Exception {
         //todo: zrobic fermon staly,sredni i cykliczny
-
         double maksymalna_wartosc = Double.MIN_VALUE;
         double minimalna_wartosc = Double.MAX_VALUE;
-        double srednia_wartosc = 0;
+        double srednia_wartosc_cyklu = 0;
         double tmp;
 
         Random r = new Random();
@@ -149,7 +184,7 @@ System.out.println(lista_wierzcholkow);
 
                 tmp = m.rozwiazanie();
 
-                srednia_wartosc += tmp;
+                srednia_wartosc_cyklu += tmp;
                 if (tmp < minimalna_wartosc) {
                     minimalna_wartosc = tmp;
                 }
@@ -157,7 +192,6 @@ System.out.println(lista_wierzcholkow);
                     maksymalna_wartosc = tmp;
                     najlepsza_mrowka = m;
                 }
-//            lokalny_feromon(m);
 
 
             }
@@ -166,7 +200,6 @@ System.out.println(lista_wierzcholkow);
                 this.najlepsza_sciezka = maksymalna_wartosc;
             }
 
-//        globalny_feromon(najlepsza_mrowka);
 
 
         }
@@ -197,6 +230,9 @@ System.out.println(lista_wierzcholkow);
 
 
 
+
+        //ostatnie
+
         double wartosc; 
         if (this.najlepsza_sciezka > 0)
         {
@@ -207,13 +243,33 @@ System.out.println(lista_wierzcholkow);
             wartosc = 0;
         }
 
+
+//        for(wierzcholek w : m.wszystkie_wierzcholki){
+//            w.feromon = (1-algorytm_mrowkowy.Alpha)*w.feromon+algorytm_mrowkowy.Alpha*1/
+//        }
+
+
         for (wierzcholek w : m.odwiedzone_wierzcholki)
         {
-                        System.out.println("Przed globalna: "+w.feromon);
+//            System.out.println("Przed"+w.feromon);
+//                        System.out.println("Przed globalna: "+w.przedmiot+" "+w.feromon);
 
-            w.feromon +=
-                    algorytm_mrowkowy.Alpha * wartosc * algorytm_mrowkowy.poczatkowy_feromon;
-            System.out.println("Po globalnej: "+w.feromon);
+            w.feromon +=algorytm_mrowkowy.Alpha * wartosc * algorytm_mrowkowy.poczatkowy_feromon;
+//w.feromon=(1-algorytm_mrowkowy.Alpha)*w.feromon+algorytm_mrowkowy.Alpha/najlepsza_sciezka;
+
+//            System.out.println("Po globalna: "+w.przedmiot+" "+w.feromon);
+
+
+
+
+
+
+
+
+
+
+
+//            System.out.println("Po globalnej: "+w.feromon);
 
 //            zakomentowane poprzednia wersja
 
@@ -229,11 +285,12 @@ System.out.println(lista_wierzcholkow);
     {
         for (wierzcholek w : m.odwiedzone_wierzcholki)
         {
-            System.out.println("Przed: "+w.feromon);
+//            System.out.println(w.przedmiot);
+//            System.out.println("Przed lokalna: "+w.przedmiot+" "+w.feromon);
 
             w.feromon = (1 - algorytm_mrowkowy.Rho) * (w.feromon) + algorytm_mrowkowy.Rho * algorytm_mrowkowy.poczatkowy_feromon;
 //            System.out.println(((1 - algorytm_mrowkowy.Rho) * (w.feromon))+" "+algorytm_mrowkowy.Rho * algorytm_mrowkowy.poczatkowy_feromon);
-            System.out.println("Po: "+w.feromon);
+//            System.out.println("Po lokalna: "+w.przedmiot+" "+w.feromon);
         }
     }
 

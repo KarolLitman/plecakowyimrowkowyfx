@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -60,6 +61,7 @@ static public int iteracje = 0;
             plecak.pozostala_masa-=w.przedmiot.getMasa();
             plecak.dodaj_przedmiot(w.przedmiot);
 //            System.out.println("po odwiedzeniu "+plecak.pozostala_masa);
+
 
         }
         else
@@ -179,10 +181,15 @@ static public int iteracje = 0;
 
         }
 
-        System.out.println(plecak.przedmioty_w_plecaku);
-//        System.out.println(plecak.wszystkie_przedmioty);
+     //   System.out.println(plecak.przedmioty_w_plecaku);
+
+
+//        Collections.sort(this.wszystkie_wierzcholki);
+//        System.out.println(this.wszystkie_wierzcholki);
+
+
         double rozw=rozwiazanie();
-System.out.println(rozw);
+//System.out.println(rozw);
 if (rozw>mrowka.wynik_max){
     mrowka.wynik_max=rozw;
 }
@@ -229,6 +236,10 @@ if (rozw>mrowka.wynik_max){
     {
        odwiedzone_wierzcholki.clear();
        plecak.przedmioty_w_plecaku.clear();
+
+       odwiedzone_wierzcholki.removeAll(odwiedzone_wierzcholki);
+       plecak.przedmioty_w_plecaku.removeAll(plecak.przedmioty_w_plecaku);
+
     }
 
 

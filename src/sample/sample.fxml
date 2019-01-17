@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
     <children>
         <GridPane layoutX="995.0" layoutY="520.0" prefHeight="101.0" prefWidth="161.0">
             <children>
@@ -60,6 +60,8 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="156.0" />
             <ColumnConstraints />
             <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
             </columnConstraints>
             <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -83,6 +85,23 @@
             <RowConstraints />
             <RowConstraints />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
             </rowConstraints>
         </GridPane>
         <GridPane layoutX="995.0" layoutY="49.0" prefHeight="456.0" prefWidth="170.0">
@@ -113,6 +132,8 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="156.0" />
                 <ColumnConstraints />
                 <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -135,6 +156,23 @@
                 <RowConstraints />
                 <RowConstraints />
                 <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
             </rowConstraints>
         </GridPane>
         <GridPane layoutX="995.0" layoutY="49.0" prefHeight="456.0" prefWidth="170.0">
@@ -145,88 +183,75 @@
             <rowConstraints>
             <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="210.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="277.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="277.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="337.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="337.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="337.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="392.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="442.0" minHeight="0.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="442.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-
-                <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="210.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="277.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="277.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="337.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="337.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="392.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="442.0" minHeight="0.0" prefHeight="27.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="442.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Slider fx:id="slider_alfa" blockIncrement="1.0" max="10.0" min="1.0" value="2.0" GridPane.rowIndex="1" />
+                <Slider fx:id="slider_alfa" blockIncrement="0.05" max="1.0" value="1.0" GridPane.rowIndex="1" />
                 <Label alignment="CENTER" prefHeight="10.0" prefWidth="182.0" text="alfa" textAlignment="CENTER" textFill="#3a23db">
                     <tooltip>
                         <Tooltip text="Initial pheromone value at each edge." />
-                    </tooltip></Label>
-                <Slider fx:id="slider_beta" blockIncrement="1.0" min="1.0" value="20.0" GridPane.rowIndex="3" />
-                <Slider fx:id="slider_pferomon" blockIncrement="1.0" max="5.0" value="2.0" GridPane.rowIndex="5" />
+                    </tooltip>
+            </Label>
+                <Slider fx:id="slider_beta" blockIncrement="0.25" max="10.0" value="1.0" GridPane.rowIndex="3" />
+                <Slider fx:id="slider_pferomon" blockIncrement="0.05" max="1.0" value="0.01" GridPane.rowIndex="5" />
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="185.0" text="beta" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="2">
                     <tooltip>
                         <Tooltip text="Number of ants." />
-                    </tooltip></Label>
+                    </tooltip>
+            </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="181.0" text="Rho" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="6">
                     <tooltip>
                         <Tooltip text="Quotient, defines nodes visibility to each other." />
-                    </tooltip></Label>
+                    </tooltip>
+            </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="189.0" text="pocz. ferom" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="4">
                     <tooltip>
                         <Tooltip text="Quotient: How pheromone is important, when ant selects next node?" />
-                    </tooltip></Label>
+                    </tooltip>
+            </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="179.0" text="q0" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="8">
                     <tooltip>
                         <Tooltip text="Number of pheromone, sprayed by each ant." />
-                    </tooltip></Label>
+                    </tooltip>
+            </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="185.0" text="ilosc mrowek" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="10">
                     <tooltip>
                         <Tooltip text="Quotient, defines pheromone disappearance. " />
-                    </tooltip></Label>
-                <Slider fx:id="slider_rho" blockIncrement="1.0" max="5.0" value="2.0" GridPane.rowIndex="7" />
-                <Slider fx:id="slider_q0" blockIncrement="1.0" min="10.0" value="50.0" GridPane.rowIndex="9" />
+                    </tooltip>
+            </Label>
+                <Slider fx:id="slider_rho" blockIncrement="0.05" max="1.0" value="0.01" GridPane.rowIndex="7" />
+                <Slider fx:id="slider_q0" blockIncrement="0.05" max="1.0" value="0.01" GridPane.rowIndex="9" />
                 <Label fx:id="wartosc_alfa" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <Label fx:id="wartosc_beta" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <Label fx:id="wartosc_pferomon" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                 <Label fx:id="wartosc_rho" text="0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                 <Label fx:id="wartosc_q0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                 <Label fx:id="wartosc_mrowki" text="0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                <Separator prefHeight="9.0" prefWidth="229.0" GridPane.rowIndex="12" />
                 <Separator prefHeight="9.0" prefWidth="229.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="183.0" text="maxmasa plecaka" textFill="#3a23db" GridPane.rowIndex="13">
-                </Label>
                 <Label fx:id="wartosc_masa" text="0" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-                <Slider fx:id="slider_masa" max="0.002" value="5.0E-4" GridPane.rowIndex="14" />
-            <ChoiceBox fx:id="choicebox_feromon" prefWidth="150.0" GridPane.rowIndex="16" />
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="183.0" text="jaki feromon" textFill="#3a23db" GridPane.rowIndex="15" />
+                <Slider fx:id="slider_masa" max="0.002" value="5.0E-4" GridPane.rowIndex="13" />
+            <ChoiceBox fx:id="choicebox_feromon" prefWidth="150.0" GridPane.rowIndex="15" />
 
-                <ChoiceBox fx:id="choicebox_feromon1" prefWidth="150.0" GridPane.rowIndex="16" />
-                <Label alignment="CENTER" prefHeight="21.0" prefWidth="183.0" text="jaki feromon" textFill="#3a23db" GridPane.rowIndex="15" />
-                <Slider fx:id="slider_mrowki" blockIncrement="1.0" max="1.0" value="0.5" GridPane.rowIndex="11" />
+                      <ChoiceBox fx:id="choicebox_feromon1" prefWidth="150.0" GridPane.rowIndex="17" />
+                <Label alignment="CENTER" prefHeight="21.0" prefWidth="183.0" text="jaki feromon" textFill="#3a23db" GridPane.rowIndex="14" />
+                <Slider fx:id="slider_mrowki" blockIncrement="1.0" min="1.0" value="1.0" GridPane.rowIndex="11" />
+                <Label alignment="CENTER" prefHeight="21.0" prefWidth="183.0" text="maxmasa plecaka" textFill="#3a23db" GridPane.rowIndex="12">
+                </Label>
             </children>
         </GridPane>
         <GridPane layoutX="255.0" layoutY="520.0" prefHeight="66.0" prefWidth="258.0">
