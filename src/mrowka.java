@@ -6,6 +6,9 @@ class mrowka {
 
 
 //    int Nmax; //liczba maksymalnych krokow jakie mrowka bedzie mogla wykonac
+static public double wynik_max = 0.0;
+static public double wynik_srednia = 0.0;
+static public int iteracje = 0;
 
 
     public ArrayList<wierzcholek> odwiedzone_wierzcholki;
@@ -178,7 +181,14 @@ class mrowka {
 
         System.out.println(plecak.przedmioty_w_plecaku);
 //        System.out.println(plecak.wszystkie_przedmioty);
-        System.out.println(rozwiazanie());
+        double rozw=rozwiazanie();
+System.out.println(rozw);
+if (rozw>mrowka.wynik_max){
+    mrowka.wynik_max=rozw;
+}
+    mrowka.wynik_srednia+=rozw;
+        mrowka.iteracje++;
+
 
 //        System.out.println(plecak);
     }
@@ -200,7 +210,16 @@ class mrowka {
 
         System.out.println(plecak.przedmioty_w_plecaku);
 //        System.out.println(plecak.wszystkie_przedmioty);
-        System.out.println(rozwiazanie());
+
+
+        double rozw=rozwiazanie();
+        System.out.println(rozw);
+        if (rozw>mrowka.wynik_max){
+            mrowka.wynik_max=rozw;
+        }
+        mrowka.wynik_srednia+=rozw;
+        mrowka.iteracje++;
+
 
         return true;
 //        System.out.println(plecak);
@@ -208,7 +227,8 @@ class mrowka {
 
     public void reset()
     {
-//       odwiedzone_wierzcholki.clear();
+       odwiedzone_wierzcholki.clear();
+       plecak.przedmioty_w_plecaku.clear();
     }
 
 

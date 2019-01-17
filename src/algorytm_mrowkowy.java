@@ -5,12 +5,12 @@ import java.util.Random;
 public class algorytm_mrowkowy {
 
 
-    static public double poczatkowy_feromon = 0.01;
-    static public double Rho = 0.10;
-    static public double Beta = 1;
+    static public double poczatkowy_feromon = 0.001;
+    static public double Rho = 0.4;
+    static public double Beta = 5;
     static public double Alpha = 1;
-    static public double q0 = 0.5;
-    static public int ilosc_mrowek = 500;
+    static public double q0 = 0.1;
+    static public int ilosc_mrowek = 10;
     static public int system=0;
     //s.mrowiskowy ACS 0
 
@@ -56,6 +56,11 @@ if(system==0)
 else
 wykonaj_mrowkowy();
 
+
+System.out.println(lista_wierzcholkow);
+//System.out.println("Wartosc max: "+mrowka.wynik_max);
+//System.out.println("Wartosc srednia: "+ (mrowka.wynik_srednia/algorytm_mrowkowy.ilosc_mrowek));
+//System.out.println(mrowka.iteracje);
     }
 
 
@@ -69,41 +74,48 @@ wykonaj_mrowkowy();
 
         Random r=new Random();
 
-        for (mrowka m : mrowki)
-        {
+
+        //cykle
+        for(int i=0;i<10;i++) {
+            srednia_wartosc=0;
+            maksymalna_wartosc=0;
+            minimalna_wartosc=0;
+            for (mrowka m : mrowki) {
 
 
-            m.reset();
-            m.odwiedz_wierzcholek(lista_wierzcholkow.get(r.nextInt(lista_wierzcholkow.size())));
+                m.reset();
+                m.odwiedz_wierzcholek(lista_wierzcholkow.get(r.nextInt(lista_wierzcholkow.size())));
 
 //            System.out.println("Pierwszy wylosowany wierzcholek "+m.odwiedzone_wierzcholki);
 
-            m.run();
+                m.run();
 
-            tmp = m.rozwiazanie();
+                tmp = m.rozwiazanie();
 
-            srednia_wartosc += tmp;
-            if (tmp < minimalna_wartosc)
-            {
-                minimalna_wartosc = tmp;
+                srednia_wartosc += tmp;
+                if (tmp < minimalna_wartosc) {
+                    minimalna_wartosc = tmp;
+                }
+                if (tmp > maksymalna_wartosc) {
+                    maksymalna_wartosc = tmp;
+                    najlepsza_mrowka = m;
+                }
+                lokalny_feromon(m);
             }
-            if (tmp > maksymalna_wartosc)
-            {
-                maksymalna_wartosc = tmp;
-                najlepsza_mrowka = m;
+
+
+            srednia_wartosc = srednia_wartosc / algorytm_mrowkowy.ilosc_mrowek;
+
+            if (this.najlepsza_sciezka < maksymalna_wartosc) {
+                this.najlepsza_sciezka = maksymalna_wartosc;
             }
-            lokalny_feromon(m);
+
+            globalny_feromon(najlepsza_mrowka);
+
+            System.out.println("Srednia wartosc z cyklu "+srednia_wartosc);
+            System.out.println("Najlepsze rozw "+najlepsza_mrowka.rozwiazanie());
+
         }
-        srednia_wartosc = srednia_wartosc / (double)algorytm_mrowkowy.ilosc_mrowek;
-
-        if(this.najlepsza_sciezka < maksymalna_wartosc)
-        {
-            this.najlepsza_sciezka = maksymalna_wartosc;
-        }
-
-        globalny_feromon(najlepsza_mrowka);
-
-
 
     }
 
@@ -120,7 +132,6 @@ wykonaj_mrowkowy();
         double tmp;
 
         Random r = new Random();
-
         for (int i = 0; i < lista_wierzcholkow.size(); i++) {
             for (mrowka m : mrowki) {
 
@@ -164,24 +175,53 @@ wykonaj_mrowkowy();
 
     public void globalny_feromon(mrowka m)
     {
-        double wartosc; 
-//        if (this.najlepsza_sciezka > 0)
+
+
+//        double updateAmount;
+//        if (this.globalUpdateFactor > 0)
 //        {
-//            wartosc = m.rozwiazanie() / this.najlepsza_sciezka;
+//            updateAmount = ant.evaluateGoalFunction() / this.globalUpdateFactor;
 //        }
 //        else
 //        {
-//            wartosc = 0;
+//            updateAmount = 0;
 //        }
+//
+//        foreach (KnapsackItemNode node in ant.VisitedNodes)
+//        {
+//            node.Pheromone +=
+//                    this.parameters.Alpha * updateAmount * node.InitialPheromone;
+//        }
+//
+//
+
+
+
+        double wartosc; 
+        if (this.najlepsza_sciezka > 0)
+        {
+            wartosc = m.rozwiazanie() / this.najlepsza_sciezka;
+        }
+        else
+        {
+            wartosc = 0;
+        }
 
         for (wierzcholek w : m.odwiedzone_wierzcholki)
         {
-//            w.feromon +=
-//                    algorytm_mrowkowy.Alpha * wartosc * algorytm_mrowkowy.poczatkowy_feromon;
+                        System.out.println("Przed globalna: "+w.feromon);
+
+            w.feromon +=
+                    algorytm_mrowkowy.Alpha * wartosc * algorytm_mrowkowy.poczatkowy_feromon;
+            System.out.println("Po globalnej: "+w.feromon);
 
 //            zakomentowane poprzednia wersja
 
-            w.feromon=(1 - algorytm_mrowkowy.Alpha ) * w.feromon + algorytm_mrowkowy.Alpha/this.najlepsza_sciezka;
+//
+//
+//            w.feromon=(1 - algorytm_mrowkowy.Alpha ) * w.feromon + algorytm_mrowkowy.Alpha/this.najlepsza_sciezka;
+//            System.out.println("Po globalnej: "+w.feromon);
+
         }
     }
 
@@ -189,7 +229,11 @@ wykonaj_mrowkowy();
     {
         for (wierzcholek w : m.odwiedzone_wierzcholki)
         {
+            System.out.println("Przed: "+w.feromon);
+
             w.feromon = (1 - algorytm_mrowkowy.Rho) * (w.feromon) + algorytm_mrowkowy.Rho * algorytm_mrowkowy.poczatkowy_feromon;
+//            System.out.println(((1 - algorytm_mrowkowy.Rho) * (w.feromon))+" "+algorytm_mrowkowy.Rho * algorytm_mrowkowy.poczatkowy_feromon);
+            System.out.println("Po: "+w.feromon);
         }
     }
 

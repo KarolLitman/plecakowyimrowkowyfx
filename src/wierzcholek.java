@@ -13,7 +13,7 @@ class wierzcholek {
 
 
     public String toString(){
-        return przedmiot.getNazwa()+"";
+        return przedmiot.getNazwa()+" "+feromon;
     }
 
 
