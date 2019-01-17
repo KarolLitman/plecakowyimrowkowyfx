@@ -11,7 +11,7 @@ public class algorytm_mrowkowy {
     static public double Alpha = 1;
     static public double q0 = 0.01;
     static public int ilosc_mrowek = 5;
-    static public int system=1;
+    static public int system=0;
     static public int ilosc_cykli=1;
     //s.mrowiskowy ACS 0
 

@@ -1,3 +1,5 @@
+import javafx.geometry.Point2D;
+
 import java.util.Objects;
 
 class wierzcholek implements Comparable<wierzcholek>{
@@ -5,6 +7,7 @@ class wierzcholek implements Comparable<wierzcholek>{
     Double feromon;
     przedmiot przedmiot;
     Double delta_tau;
+    Point2D punkt;
 
     wierzcholek(przedmiot p) {
         this.przedmiot=p;

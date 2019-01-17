@@ -61,7 +61,7 @@ public class MainViewController implements Initializable{
     @FXML
     private TableColumn<?, ?> colcena1;
 
-    @FXML
+    algorytm_mrowkowy aw;
 
 
     ArrayList<Point2D> nodes = new ArrayList<Point2D>();
@@ -86,12 +86,8 @@ public class MainViewController implements Initializable{
 
         lista.addAll(p.wszystkie_przedmioty);
 
-        for (int x = 0; x < p.wszystkie_przedmioty.size(); x++) {
-            nodes.add(new Point2D(Math.random() * sizex, Math.random() * sizey));
-        }
 
 
-        draw_nodes();
 
         ArrayList<Integer>sciezka = new ArrayList<Integer>(2);
 
@@ -102,13 +98,24 @@ public class MainViewController implements Initializable{
         }
 
 
-        draw_road(sciezka, (int) 10, Color.BLUE, true, 3);
 
 
 //        p.wszystkie_przedmioty.add((new przedmiot("s56",510,575)));p.wszystkie_przedmioty.add((new przedmiot("s57",520,336)));p.wszystkie_przedmioty.add((new przedmiot("s58",530,330)));p.wszystkie_przedmioty.add((new przedmiot("s59",540,493)));p.wszystkie_przedmioty.add((new przedmiot("s60",550,324)));p.wszystkie_przedmioty.add((new przedmiot("s61",560,264)));p.wszystkie_przedmioty.add((new przedmiot("s62",570,408)));p.wszystkie_przedmioty.add((new przedmiot("s63",580,342)));p.wszystkie_przedmioty.add((new przedmiot("s64",590,505)));p.wszystkie_przedmioty.add((new przedmiot("s65",600,366)));p.wszystkie_przedmioty.add((new przedmiot("s66",610,479)));p.wszystkie_przedmioty.add((new przedmiot("s67",620,504)));p.wszystkie_przedmioty.add((new przedmiot("s68",630,185)));p.wszystkie_przedmioty.add((new przedmiot("s69",640,247)));p.wszystkie_przedmioty.add((new przedmiot("s70",650,232)));p.wszystkie_przedmioty.add((new przedmiot("s71",660,136)));p.wszystkie_przedmioty.add((new przedmiot("s72",670,496)));p.wszystkie_przedmioty.add((new przedmiot("s73",680,572)));p.wszystkie_przedmioty.add((new przedmiot("s74",690,588)));p.wszystkie_przedmioty.add((new przedmiot("s75",700,493)));p.wszystkie_przedmioty.add((new przedmiot("s76",710,575)));p.wszystkie_przedmioty.add((new przedmiot("s77",720,256)));p.wszystkie_przedmioty.add((new przedmiot("s78",730,387)));p.wszystkie_przedmioty.add((new przedmiot("s79",740,332)));p.wszystkie_przedmioty.add((new przedmiot("s80",750,573)));p.wszystkie_przedmioty.add((new przedmiot("s81",760,392)));p.wszystkie_przedmioty.add((new przedmiot("s82",770,230)));p.wszystkie_przedmioty.add((new przedmiot("s83",780,218)));p.wszystkie_przedmioty.add((new przedmiot("s84",790,174)));p.wszystkie_przedmioty.add((new przedmiot("s85",800,161)));p.wszystkie_przedmioty.add((new przedmiot("s86",810,206)));p.wszystkie_przedmioty.add((new przedmiot("s87",820,366)));p.wszystkie_przedmioty.add((new przedmiot("s88",830,581)));p.wszystkie_przedmioty.add((new przedmiot("s89",840,546)));p.wszystkie_przedmioty.add((new przedmiot("s90",850,314)));p.wszystkie_przedmioty.add((new przedmiot("s91",860,273)));p.wszystkie_przedmioty.add((new przedmiot("s92",870,381)));p.wszystkie_przedmioty.add((new przedmiot("s93",880,323)));p.wszystkie_przedmioty.add((new przedmiot("s94",890,169)));p.wszystkie_przedmioty.add((new przedmiot("s95",900,255)));p.wszystkie_przedmioty.add((new przedmiot("s96",910,157)));p.wszystkie_przedmioty.add((new przedmiot("s97",920,253)));p.wszystkie_przedmioty.add((new przedmiot("s98",930,382)));p.wszystkie_przedmioty.add((new przedmiot("s99",940,109)));p.wszystkie_przedmioty.add((new przedmiot("s100",950,329)));p.wszystkie_przedmioty.add((new przedmiot("s101",960,359)));p.wszystkie_przedmioty.add((new przedmiot("s102",970,221)));p.wszystkie_przedmioty.add((new przedmiot("s103",980,175)));p.wszystkie_przedmioty.add((new przedmiot("s104",990,302)));p.wszystkie_przedmioty.add((new przedmiot("s105",1000,257)));
 
         try {
-            algorytm_mrowkowy aw=new algorytm_mrowkowy(p);
+            aw =new algorytm_mrowkowy(p);
+
+            for(wierzcholek w : aw.lista_wierzcholkow){
+w.punkt=new Point2D(Math.random() * sizex, Math.random() * sizey);
+
+                    nodes.add(w.punkt);
+draw_nodes();
+                draw_road(sciezka, (int) 10, Color.BLUE, true, 3);
+
+
+            }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -300,13 +307,14 @@ public class MainViewController implements Initializable{
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         for (int x = 0; x < n; x++) {
-            Point2D node = nodes.get(x);
+            Point2D node = aw.lista_wierzcholkow.get(x).punkt;
+            String nazwa = aw.lista_wierzcholkow.get(x).przedmiot.getNazwa();
+
             Float radius = 4.0f;
             gc.setStroke(Color.BLUE);
             gc.setLineWidth(1);
             gc.strokeOval(node.getX(), node.getY(), radius, radius);
-//            gc.
-
+            gc.strokeText(nazwa,node.getX()+5,node.getY()+5);
         }
     }
 
@@ -318,7 +326,7 @@ public class MainViewController implements Initializable{
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setStroke(color);
         gc.setLineWidth(width);
-        for (int x = 1; x < n; x++) {
+        for (int x = 1; x < 10; x++) {
             Point2D from = punkty_sciezka.get(x - 1);
             Point2D to = punkty_sciezka.get(x);
             gc.strokeLine(from.getX(), from.getY(), to.getX(), to.getY());
@@ -334,11 +342,11 @@ public class MainViewController implements Initializable{
         ArrayList<Point2D> modified_road = new ArrayList<Point2D>(algorytm_mrowkowy.ilosc_mrowek);
         Point2D poprzedni_wierzcholek = nodes.get(sciezka.get(0));
         Point2D nastepny_wierzcholek;
-        for (int x = 1; x < (p.wszystkie_przedmioty.size()+1); x++) {
+        for (int x = 1; x < (aw.lista_wierzcholkow.size()-10); x++) {
             if (x==p.wszystkie_przedmioty.size()) {
-                nastepny_wierzcholek = nodes.get(sciezka.get(0));
+                nastepny_wierzcholek = nodes.get(0);
             } else{
-                nastepny_wierzcholek = nodes.get(sciezka.get(x));
+                nastepny_wierzcholek = nodes.get(0);
             }
             double delta_x = Math.abs(poprzedni_wierzcholek.getX() - nastepny_wierzcholek.getX());
             double delta_y = Math.abs(poprzedni_wierzcholek.getY() - nastepny_wierzcholek.getY());
