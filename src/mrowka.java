@@ -180,7 +180,7 @@ static public int iteracje = 0;
 
         }
 
-     //   System.out.println(plecak.przedmioty_w_plecaku);
+        System.out.println(plecak.przedmioty_w_plecaku);
 
 
 //        Collections.sort(this.wszystkie_wierzcholki);
