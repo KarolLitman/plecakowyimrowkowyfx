@@ -106,7 +106,7 @@ public class MainViewController implements Initializable{
             aw =new algorytm_mrowkowy(p);
 
             int punkty=aw.lista_wierzcholkow.size();
-            int r=200;
+            int r=280;
             int i=0;
 
             final int NUM_POINTS = 1000;
@@ -334,7 +334,16 @@ i++;
             gc.setStroke(Color.BLUE);
             gc.setLineWidth(1);
             gc.strokeOval(node.getX(), node.getY(), radius, radius);
-            gc.strokeText(nazwa,node.getX()+5,node.getY()+5);
+            if(node.getX()>=canvas.getWidth()/2)
+            {
+            	if(node.getY()>=canvas.getHeight()/2) {
+            		gc.strokeText(nazwa,node.getX()+5,node.getY()+20);
+            		}else {gc.strokeText(nazwa,node.getX()+5,node.getY()-10);}
+            }else {
+            	if(node.getY()>=canvas.getHeight()/2) {gc.strokeText(nazwa,node.getX()-20,node.getY()+20);}
+            	else{
+            	gc.strokeText(nazwa,node.getX()-20,node.getY()-10);
+            }}
         }
     }
 
