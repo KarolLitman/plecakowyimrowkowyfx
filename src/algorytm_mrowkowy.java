@@ -10,9 +10,9 @@ public class algorytm_mrowkowy {
     static public double Beta = 5;
     static public double Alpha = 1;
     static public double q0 = 0.01;
-    static public int ilosc_mrowek = 5;
-    static public int system=0;
-    static public int ilosc_cykli=1000;
+    static public int ilosc_mrowek = 100;
+    static public int system=1;
+    static public int ilosc_cykli=1;
     //s.mrowiskowy ACS 0
 
 
@@ -26,7 +26,7 @@ public class algorytm_mrowkowy {
     //mrowkowy min/max 4
     //mrowkowy elitarny 5 ??
 
-    static public double Q=10;
+    static public double Q=0.001;
     
     
     
@@ -167,7 +167,7 @@ wykonaj_mrowkowy();
         double tmp;
 
         Random r = new Random();
-        for (int i = 0; i < lista_wierzcholkow.size(); i++) {
+        for (int i = 0; i <1; i++) {
             for (mrowka m : mrowki) {
 
 
@@ -176,9 +176,11 @@ wykonaj_mrowkowy();
 
                 if(m.run_mrowkowy()==true)
                 {
-                    for(wierzcholek w:m.odwiedzone_wierzcholki)
-                    w.feromon = (1 - algorytm_mrowkowy.Rho) * w.feromon + w.delta_tau;
-                    continue;
+                    for(wierzcholek w:m.odwiedzone_wierzcholki) {
+                        w.feromon = (1 - algorytm_mrowkowy.Rho) * w.feromon + w.delta_tau;
+                        break;
+
+                    }
                 }
 
 

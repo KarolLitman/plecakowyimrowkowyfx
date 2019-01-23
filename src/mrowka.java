@@ -122,10 +122,14 @@ static public int iteracje = 0;
             }
 
             double rand = random.nextDouble() * totalAtr;
+//            for(int i =0; i<count; i++){
+//                System.out.println("atr "+atrMap[i]+" "+ dostepne_wierzcholki.get(i));
+//            }
             for (int i = 0; i < count; i++)
             {
                 if (rand < atrMap[i])
                 {
+
                     return dostepne_wierzcholki.get(i);
                 }
             }
@@ -206,10 +210,15 @@ if (rozw>mrowka.wynik_max){
 //            System.out.println("Nastepne "+w);
             this.odwiedz_wierzcholek(w);
 
-            if(algorytm_mrowkowy.system==1)
+            if(algorytm_mrowkowy.system==1){
                 w.delta_tau+=algorytm_mrowkowy.Q;
-            else if (algorytm_mrowkowy.system==2)
+                System.out.println(w);
+                return true;}
+            else if (algorytm_mrowkowy.system==2){
                 w.delta_tau+=algorytm_mrowkowy.Q/w.odleglosc();
+                System.out.println(w);
+
+                return true;}
 
                 return false;
         }

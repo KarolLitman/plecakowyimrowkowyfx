@@ -71,12 +71,12 @@ public class MainViewController implements Initializable{
 
 
         p=new problem_plecakowy();
-        p.wszystkie_przedmioty.add((new przedmiot("s1",20,100)));
+        p.wszystkie_przedmioty.add((new przedmiot("s1",100,100)));
         p.wszystkie_przedmioty.add((new przedmiot("s2",500,650)));
-        p.wszystkie_przedmioty.add((new przedmiot("s3",30,450)));
+        p.wszystkie_przedmioty.add((new przedmiot("s3",450,450)));
         p.wszystkie_przedmioty.add((new przedmiot("s4",410,400)));
         p.wszystkie_przedmioty.add((new przedmiot("s5",600,650)));
-        p.wszystkie_przedmioty.add((new przedmiot("s6",500,568)));p.wszystkie_przedmioty.add((new przedmiot("s7",200,267)));p.wszystkie_przedmioty.add((new przedmiot("s8",30,287)));p.wszystkie_przedmioty.add((new przedmiot("s9",250,290)));p.wszystkie_przedmioty.add((new przedmiot("s10",50,514)));p.wszystkie_przedmioty.add((new przedmiot("s11",200,273)));p.wszystkie_przedmioty.add((new przedmiot("s12",400,444)));p.wszystkie_przedmioty.add((new przedmiot("s13",80,279)));p.wszystkie_przedmioty.add((new przedmiot("s14",690,290)));p.wszystkie_przedmioty.add((new przedmiot("s15",100,482)));p.wszystkie_przedmioty.add((new przedmiot("s16",600,423)));p.wszystkie_przedmioty.add((new przedmiot("s17",300,452)));p.wszystkie_przedmioty.add((new przedmiot("s18",130,377)));p.wszystkie_przedmioty.add((new przedmiot("s19",140,174)));p.wszystkie_przedmioty.add((new przedmiot("s20",150,424)));p.wszystkie_przedmioty.add((new przedmiot("s21",160,464)));p.wszystkie_przedmioty.add((new przedmiot("s22",170,242)));p.wszystkie_przedmioty.add((new przedmiot("s23",260,208)));p.wszystkie_przedmioty.add((new przedmiot("s24",190,232)));p.wszystkie_przedmioty.add((new przedmiot("s25",200,321)));p.wszystkie_przedmioty.add((new przedmiot("s26",210,306)));p.wszystkie_przedmioty.add((new przedmiot("s27",220,427)));p.wszystkie_przedmioty.add((new przedmiot("s28",230,800)));p.wszystkie_przedmioty.add((new przedmiot("s29",240,452)));p.wszystkie_przedmioty.add((new przedmiot("s30",250,279)));p.wszystkie_przedmioty.add((new przedmiot("s31",260,192)));p.wszystkie_przedmioty.add((new przedmiot("s32",270,600)));p.wszystkie_przedmioty.add((new przedmiot("s33",280,556)));p.wszystkie_przedmioty.add((new przedmiot("s34",490,478)));p.wszystkie_przedmioty.add((new przedmiot("s35",300,382)));p.wszystkie_przedmioty.add((new przedmiot("s36",310,890)));p.wszystkie_przedmioty.add((new przedmiot("s37",320,364)));p.wszystkie_przedmioty.add((new przedmiot("s38",330,572)));p.wszystkie_przedmioty.add((new przedmiot("s39",340,441)));p.wszystkie_przedmioty.add((new przedmiot("s40",350,132)));p.wszystkie_przedmioty.add((new przedmiot("s41",360,537)));p.wszystkie_przedmioty.add((new przedmiot("s42",370,379)));p.wszystkie_przedmioty.add((new przedmiot("s43",380,600)));p.wszystkie_przedmioty.add((new przedmiot("s44",390,527)));p.wszystkie_przedmioty.add((new przedmiot("s45",400,550)));p.wszystkie_przedmioty.add((new przedmiot("s46",410,590)));p.wszystkie_przedmioty.add((new przedmiot("s47",420,221)));p.wszystkie_przedmioty.add((new przedmiot("s48",430,800)));p.wszystkie_przedmioty.add((new przedmiot("s49",440,335)));p.wszystkie_przedmioty.add((new przedmiot("s50",450,396)));p.wszystkie_przedmioty.add((new przedmiot("s51",460,1200)));p.wszystkie_przedmioty.add((new przedmiot("s52",470,256)));p.wszystkie_przedmioty.add((new przedmiot("s53",480,437)));p.wszystkie_przedmioty.add((new przedmiot("s54",490,900)));p.wszystkie_przedmioty.add((new przedmiot("s55",1000,427)));
+        p.wszystkie_przedmioty.add((new przedmiot("s6",500,568)));p.wszystkie_przedmioty.add((new przedmiot("s7",200,267)));p.wszystkie_przedmioty.add((new przedmiot("s8",270,287)));p.wszystkie_przedmioty.add((new przedmiot("s9",250,290)));p.wszystkie_przedmioty.add((new przedmiot("s10",500,514)));p.wszystkie_przedmioty.add((new przedmiot("s11",200,273)));p.wszystkie_przedmioty.add((new przedmiot("s12",400,444)));p.wszystkie_przedmioty.add((new przedmiot("s13",80,279)));p.wszystkie_przedmioty.add((new przedmiot("s14",690,290)));p.wszystkie_przedmioty.add((new przedmiot("s15",480,482)));p.wszystkie_przedmioty.add((new przedmiot("s16",600,423)));p.wszystkie_przedmioty.add((new przedmiot("s17",300,452)));p.wszystkie_przedmioty.add((new przedmiot("s18",130,377)));p.wszystkie_przedmioty.add((new przedmiot("s19",140,174)));p.wszystkie_przedmioty.add((new przedmiot("s20",150,424)));p.wszystkie_przedmioty.add((new przedmiot("s21",160,464)));p.wszystkie_przedmioty.add((new przedmiot("s22",170,242)));p.wszystkie_przedmioty.add((new przedmiot("s23",260,208)));p.wszystkie_przedmioty.add((new przedmiot("s24",190,232)));p.wszystkie_przedmioty.add((new przedmiot("s25",200,321)));p.wszystkie_przedmioty.add((new przedmiot("s26",210,306)));p.wszystkie_przedmioty.add((new przedmiot("s27",220,427)));p.wszystkie_przedmioty.add((new przedmiot("s28",230,800)));p.wszystkie_przedmioty.add((new przedmiot("s29",240,452)));p.wszystkie_przedmioty.add((new przedmiot("s30",250,279)));p.wszystkie_przedmioty.add((new przedmiot("s31",260,192)));p.wszystkie_przedmioty.add((new przedmiot("s32",270,600)));p.wszystkie_przedmioty.add((new przedmiot("s33",280,556)));p.wszystkie_przedmioty.add((new przedmiot("s34",490,478)));p.wszystkie_przedmioty.add((new przedmiot("s35",300,382)));p.wszystkie_przedmioty.add((new przedmiot("s36",310,890)));p.wszystkie_przedmioty.add((new przedmiot("s37",320,364)));p.wszystkie_przedmioty.add((new przedmiot("s38",330,572)));p.wszystkie_przedmioty.add((new przedmiot("s39",340,441)));p.wszystkie_przedmioty.add((new przedmiot("s40",350,132)));p.wszystkie_przedmioty.add((new przedmiot("s41",360,537)));p.wszystkie_przedmioty.add((new przedmiot("s42",370,379)));p.wszystkie_przedmioty.add((new przedmiot("s43",380,600)));p.wszystkie_przedmioty.add((new przedmiot("s44",390,527)));p.wszystkie_przedmioty.add((new przedmiot("s45",400,550)));p.wszystkie_przedmioty.add((new przedmiot("s46",410,590)));p.wszystkie_przedmioty.add((new przedmiot("s47",420,221)));p.wszystkie_przedmioty.add((new przedmiot("s48",430,800)));p.wszystkie_przedmioty.add((new przedmiot("s49",440,335)));p.wszystkie_przedmioty.add((new przedmiot("s50",450,396)));p.wszystkie_przedmioty.add((new przedmiot("s51",460,1200)));p.wszystkie_przedmioty.add((new przedmiot("s52",470,256)));p.wszystkie_przedmioty.add((new przedmiot("s53",480,437)));p.wszystkie_przedmioty.add((new przedmiot("s54",490,900)));p.wszystkie_przedmioty.add((new przedmiot("s55",1000,427)));
 
         double sizex = canvas.getWidth();
         double sizey = canvas.getHeight();
@@ -105,14 +105,34 @@ public class MainViewController implements Initializable{
         try {
             aw =new algorytm_mrowkowy(p);
 
-            for(wierzcholek w : aw.lista_wierzcholkow){
-            w.punkt=new Point2D(Math.random() * sizex, Math.random() * sizey);
+            int punkty=aw.lista_wierzcholkow.size();
+            int r=200;
+            int i=0;
 
-                    nodes.add(w.punkt);
+            final int NUM_POINTS = 1000;
+            final double RADIUS = 100d;
+
+            for(wierzcholek w : aw.lista_wierzcholkow){
+
+                double t = 2 * Math.PI * i / aw.lista_wierzcholkow.size();
+                int x = (int) Math.round(sizex/2 + r * Math.cos(t));
+                int y = (int) Math.round(sizey/2 + r * Math.sin(t));
+
+                w.punkt=new Point2D(x, y);
+
+
+
+
+
+
+
+
+
+                nodes.add(w.punkt);
 draw_nodes();
                 draw_road(sciezka, (int) 10, Color.BLUE, true, 3);
 
-
+i++;
             }
 
 
