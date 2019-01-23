@@ -28,7 +28,7 @@ public class MainViewController implements Initializable{
     public TableColumn <przedmiot, String> colnazwa;
     public TableColumn <przedmiot, Double> colmasa;
     public TableColumn <przedmiot, Double> colcena;
-//    public Slider option_a;
+    //    public Slider option_a;
 //    public Label value_a;
     public Slider slider_rho;
     public Slider slider_mrowki;
@@ -129,10 +129,10 @@ public class MainViewController implements Initializable{
 
 
                 nodes.add(w.punkt);
-draw_nodes();
+                draw_nodes();
                 draw_road(sciezka, (int) 10, Color.BLUE, true, 3);
 
-i++;
+                i++;
             }
 
 
@@ -336,14 +336,14 @@ i++;
             gc.strokeOval(node.getX(), node.getY(), radius, radius);
             if(node.getX()>=canvas.getWidth()/2)
             {
-            	if(node.getY()>=canvas.getHeight()/2) {
-            		gc.strokeText(nazwa,node.getX()+5,node.getY()+20);
-            		}else {gc.strokeText(nazwa,node.getX()+5,node.getY()-10);}
+                if(node.getY()>=canvas.getHeight()/2) {
+                    gc.strokeText(nazwa,node.getX()+5,node.getY()+20);
+                }else {gc.strokeText(nazwa,node.getX()+5,node.getY()-10);}
             }else {
-            	if(node.getY()>=canvas.getHeight()/2) {gc.strokeText(nazwa,node.getX()-20,node.getY()+20);}
-            	else{
-            	gc.strokeText(nazwa,node.getX()-20,node.getY()-10);
-            }}
+                if(node.getY()>=canvas.getHeight()/2) {gc.strokeText(nazwa,node.getX()-20,node.getY()+20);}
+                else{
+                    gc.strokeText(nazwa,node.getX()-20,node.getY()-10);
+                }}
         }
     }
 
