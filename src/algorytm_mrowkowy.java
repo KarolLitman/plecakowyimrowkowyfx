@@ -10,9 +10,9 @@ public class algorytm_mrowkowy {
     static public double Beta = 5;
     static public double Alpha = 1;
     static public double q0 = 0.01;
-    static public int ilosc_mrowek = 100;
+    static public int ilosc_mrowek = 2;
     static public int system=1;
-    static public int ilosc_cykli=1;
+    static public int ilosc_cykli=30;
     //s.mrowiskowy ACS 0
 
 
@@ -160,6 +160,7 @@ wykonaj_mrowkowy();
 
 
     void wykonaj_mrowkowy() throws Exception {
+
         //todo: zrobic fermon staly,sredni i cykliczny
         double maksymalna_wartosc = Double.MIN_VALUE;
         double minimalna_wartosc = Double.MAX_VALUE;
@@ -167,44 +168,89 @@ wykonaj_mrowkowy();
         double tmp;
 
         Random r = new Random();
-        for (int i = 0; i <1; i++) {
-            for (mrowka m : mrowki) {
-
+        for(int j=0;j<algorytm_mrowkowy.ilosc_cykli;j++) {
+            for (int i = 0; i < pp.wszystkie_przedmioty.size(); i++) {
+                for (mrowka m : mrowki) {
 
 
 //            System.out.println("Pierwszy wylosowany wierzcholek "+m.odwiedzone_wierzcholki);
 
-                if(m.run_mrowkowy()==true)
-                {
-                    for(wierzcholek w:m.odwiedzone_wierzcholki) {
-                        w.feromon = (1 - algorytm_mrowkowy.Rho) * w.feromon + w.delta_tau;
-                        break;
+                    if (m.czy_mrowka_zyje) {
+                        wierzcholek w = m.wybierz_nastepny_wierzcholek();
+
+
+                        if (m.odwiedzone_wierzcholki.size() == pp.wszystkie_przedmioty.size() || w == null) {
+                            m.czy_mrowka_zyje = false;
+                        } else {
+                            m.odwiedz_wierzcholek(w);
+
+                        }
+
+                        if (m.czy_mrowka_zyje) {
+                            m.dlugosc_trasy += w.odleglosc();
+                            if (algorytm_mrowkowy.system == 1) {
+                                w.delta_tau += algorytm_mrowkowy.Q;
+                                w.feromon = (1 - algorytm_mrowkowy.Rho) * w.feromon + w.delta_tau;
+                                System.out.println(m + " " + w);
+                            } else if (algorytm_mrowkowy.system == 2) {
+                                w.delta_tau += algorytm_mrowkowy.Q / w.odleglosc();
+                                System.out.println(m + " " + w);
+                            }
+
+
+                        }
+//                    tmp = m.rozwiazanie();
+
+//                    srednia_wartosc_cyklu += tmp;
+//                    if (tmp < minimalna_wartosc) {
+//                        minimalna_wartosc = tmp;
+//                    }
+//                    if (tmp > maksymalna_wartosc) {
+//                        maksymalna_wartosc = tmp;
+//                        najlepsza_mrowka = m;
+//                    }
+
 
                     }
+
+
+//                if(!m.czy_mrowka_zyje){
+//                    System.out.println("xd");
+//                    for(wierzcholek w:m.odwiedzone_wierzcholki){
+//                        w.feromon=(1 - algorytm_mrowkowy.Rho) * w.feromon + w.delta_tau;
+//
+//                    }
+//                    break;
+//                }
+
+
+//                if (this.najlepsza_sciezka < maksymalna_wartosc) {
+//                    this.najlepsza_sciezka = maksymalna_wartosc;
+//                }
+
+
                 }
-
-
-                tmp = m.rozwiazanie();
-
-                srednia_wartosc_cyklu += tmp;
-                if (tmp < minimalna_wartosc) {
-                    minimalna_wartosc = tmp;
-                }
-                if (tmp > maksymalna_wartosc) {
-                    maksymalna_wartosc = tmp;
-                    najlepsza_mrowka = m;
-                }
-
-
             }
+//
 
-            if (this.najlepsza_sciezka < maksymalna_wartosc) {
-                this.najlepsza_sciezka = maksymalna_wartosc;
+            for (mrowka m : mrowki) {
+                for (wierzcholek w : m.odwiedzone_wierzcholki) {
+                    w.feromon = (1 - algorytm_mrowkowy.Rho) * w.feromon + w.delta_tau;
+
+                }
+                m.reset();
             }
-
-
-
         }
+//        for (mrowka m : mrowki) {
+//        for(wierzcholek w : m.odwiedzone_wierzcholki){
+//            w.delta_tau+=algorytm_mrowkowy.Q/m.dlugosc_trasy;
+//        }
+//        }
+
+
+
+
+
     }
 
 

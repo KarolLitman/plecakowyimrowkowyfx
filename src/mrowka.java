@@ -11,6 +11,9 @@ static public double wynik_max = 0.0;
 static public double wynik_srednia = 0.0;
 static public int iteracje = 0;
 
+ boolean czy_mrowka_zyje=true;
+ double dlugosc_trasy=0.0;
+
 
     public ArrayList<wierzcholek> odwiedzone_wierzcholki;
     public ArrayList<wierzcholek> wszystkie_wierzcholki;
@@ -137,8 +140,9 @@ static public int iteracje = 0;
         }
         else
         {
-            if (dostepne_wierzcholki.size() == 0)
+            if (dostepne_wierzcholki.size() == 0) {
                 return null;
+            }
             wierzcholek tmpNode = dostepne_wierzcholki.get(0);
             double tmp, tmpMax = Double.MIN_VALUE;
             for(wierzcholek w : dostepne_wierzcholki)
@@ -212,11 +216,11 @@ if (rozw>mrowka.wynik_max){
 
             if(algorytm_mrowkowy.system==1){
                 w.delta_tau+=algorytm_mrowkowy.Q;
-                System.out.println(w);
+                System.out.println(this+" "+w);
                 return true;}
             else if (algorytm_mrowkowy.system==2){
                 w.delta_tau+=algorytm_mrowkowy.Q/w.odleglosc();
-                System.out.println(w);
+                System.out.println(this+" "+w);
 
                 return true;}
 
@@ -247,6 +251,9 @@ if (rozw>mrowka.wynik_max){
 
        odwiedzone_wierzcholki.removeAll(odwiedzone_wierzcholki);
        plecak.przedmioty_w_plecaku.removeAll(plecak.przedmioty_w_plecaku);
+
+       czy_mrowka_zyje=true;
+       dlugosc_trasy=0.0;
 
     }
 
