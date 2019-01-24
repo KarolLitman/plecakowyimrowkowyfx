@@ -15,7 +15,6 @@ public class algorytm_mrowkowy {
     static public int ilosc_cykli=30;
 
 
-
     static public double min=0.01;
     static public double max=2.0;
 

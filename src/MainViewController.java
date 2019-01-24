@@ -46,6 +46,12 @@ public class MainViewController implements Initializable{
     public Label wartosc_pferomon;
     public Slider slider_masa;
     public ChoiceBox choicebox_feromon;
+    public Label maxymalna;
+    public Label minimalna;
+    public Slider tau_max;
+    public Slider tau_min;
+    public Slider slider_ilosc_cykil;
+    public Label ilosc_cykli;
 
 
 
@@ -78,8 +84,8 @@ public class MainViewController implements Initializable{
         p.wszystkie_przedmioty.add((new przedmiot("s5",600,650)));
         p.wszystkie_przedmioty.add((new przedmiot("s6",500,568)));p.wszystkie_przedmioty.add((new przedmiot("s7",200,267)));p.wszystkie_przedmioty.add((new przedmiot("s8",270,287)));p.wszystkie_przedmioty.add((new przedmiot("s9",250,290)));p.wszystkie_przedmioty.add((new przedmiot("s10",500,514)));p.wszystkie_przedmioty.add((new przedmiot("s11",200,273)));p.wszystkie_przedmioty.add((new przedmiot("s12",400,444)));p.wszystkie_przedmioty.add((new przedmiot("s13",80,279)));p.wszystkie_przedmioty.add((new przedmiot("s14",690,290)));p.wszystkie_przedmioty.add((new przedmiot("s15",480,482)));p.wszystkie_przedmioty.add((new przedmiot("s16",600,423)));p.wszystkie_przedmioty.add((new przedmiot("s17",300,452)));p.wszystkie_przedmioty.add((new przedmiot("s18",130,377)));p.wszystkie_przedmioty.add((new przedmiot("s19",140,174)));p.wszystkie_przedmioty.add((new przedmiot("s20",150,424)));p.wszystkie_przedmioty.add((new przedmiot("s21",160,464)));p.wszystkie_przedmioty.add((new przedmiot("s22",170,242)));p.wszystkie_przedmioty.add((new przedmiot("s23",260,208)));p.wszystkie_przedmioty.add((new przedmiot("s24",190,232)));p.wszystkie_przedmioty.add((new przedmiot("s25",200,321)));p.wszystkie_przedmioty.add((new przedmiot("s26",210,306)));p.wszystkie_przedmioty.add((new przedmiot("s27",220,427)));p.wszystkie_przedmioty.add((new przedmiot("s28",230,800)));p.wszystkie_przedmioty.add((new przedmiot("s29",240,452)));p.wszystkie_przedmioty.add((new przedmiot("s30",250,279)));p.wszystkie_przedmioty.add((new przedmiot("s31",260,192)));p.wszystkie_przedmioty.add((new przedmiot("s32",270,600)));p.wszystkie_przedmioty.add((new przedmiot("s33",280,556)));p.wszystkie_przedmioty.add((new przedmiot("s34",490,478)));p.wszystkie_przedmioty.add((new przedmiot("s35",300,382)));p.wszystkie_przedmioty.add((new przedmiot("s36",310,890)));p.wszystkie_przedmioty.add((new przedmiot("s37",320,364)));p.wszystkie_przedmioty.add((new przedmiot("s38",330,572)));p.wszystkie_przedmioty.add((new przedmiot("s39",340,441)));p.wszystkie_przedmioty.add((new przedmiot("s40",350,132)));p.wszystkie_przedmioty.add((new przedmiot("s41",360,537)));p.wszystkie_przedmioty.add((new przedmiot("s42",370,379)));p.wszystkie_przedmioty.add((new przedmiot("s43",380,600)));p.wszystkie_przedmioty.add((new przedmiot("s44",390,527)));p.wszystkie_przedmioty.add((new przedmiot("s45",400,550)));p.wszystkie_przedmioty.add((new przedmiot("s46",410,590)));p.wszystkie_przedmioty.add((new przedmiot("s47",420,221)));p.wszystkie_przedmioty.add((new przedmiot("s48",430,800)));p.wszystkie_przedmioty.add((new przedmiot("s49",440,335)));p.wszystkie_przedmioty.add((new przedmiot("s50",450,396)));p.wszystkie_przedmioty.add((new przedmiot("s51",460,1200)));p.wszystkie_przedmioty.add((new przedmiot("s52",470,256)));p.wszystkie_przedmioty.add((new przedmiot("s53",480,437)));p.wszystkie_przedmioty.add((new przedmiot("s54",490,900)));p.wszystkie_przedmioty.add((new przedmiot("s55",1000,427)));
 
-        double sizex = canvas.getWidth();
-        double sizey = canvas.getHeight();
+//        double sizex = canvas.getWidth();
+//        double sizey = canvas.getHeight();
 
 
 
@@ -89,56 +95,56 @@ public class MainViewController implements Initializable{
 
 
 
-        ArrayList<Integer>sciezka = new ArrayList<Integer>(2);
-
-
-        for(int i=0;i<p.wszystkie_przedmioty.size()-1;i++){
-            sciezka.add(i);
-            sciezka.add(i+1);
-        }
+//        ArrayList<Integer>sciezka = new ArrayList<Integer>(2);
+//
+//
+//        for(int i=0;i<p.wszystkie_przedmioty.size()-1;i++){
+//            sciezka.add(i);
+//            sciezka.add(i+1);
+//        }
 
 
 
 
 //        p.wszystkie_przedmioty.add((new przedmiot("s56",510,575)));p.wszystkie_przedmioty.add((new przedmiot("s57",520,336)));p.wszystkie_przedmioty.add((new przedmiot("s58",530,330)));p.wszystkie_przedmioty.add((new przedmiot("s59",540,493)));p.wszystkie_przedmioty.add((new przedmiot("s60",550,324)));p.wszystkie_przedmioty.add((new przedmiot("s61",560,264)));p.wszystkie_przedmioty.add((new przedmiot("s62",570,408)));p.wszystkie_przedmioty.add((new przedmiot("s63",580,342)));p.wszystkie_przedmioty.add((new przedmiot("s64",590,505)));p.wszystkie_przedmioty.add((new przedmiot("s65",600,366)));p.wszystkie_przedmioty.add((new przedmiot("s66",610,479)));p.wszystkie_przedmioty.add((new przedmiot("s67",620,504)));p.wszystkie_przedmioty.add((new przedmiot("s68",630,185)));p.wszystkie_przedmioty.add((new przedmiot("s69",640,247)));p.wszystkie_przedmioty.add((new przedmiot("s70",650,232)));p.wszystkie_przedmioty.add((new przedmiot("s71",660,136)));p.wszystkie_przedmioty.add((new przedmiot("s72",670,496)));p.wszystkie_przedmioty.add((new przedmiot("s73",680,572)));p.wszystkie_przedmioty.add((new przedmiot("s74",690,588)));p.wszystkie_przedmioty.add((new przedmiot("s75",700,493)));p.wszystkie_przedmioty.add((new przedmiot("s76",710,575)));p.wszystkie_przedmioty.add((new przedmiot("s77",720,256)));p.wszystkie_przedmioty.add((new przedmiot("s78",730,387)));p.wszystkie_przedmioty.add((new przedmiot("s79",740,332)));p.wszystkie_przedmioty.add((new przedmiot("s80",750,573)));p.wszystkie_przedmioty.add((new przedmiot("s81",760,392)));p.wszystkie_przedmioty.add((new przedmiot("s82",770,230)));p.wszystkie_przedmioty.add((new przedmiot("s83",780,218)));p.wszystkie_przedmioty.add((new przedmiot("s84",790,174)));p.wszystkie_przedmioty.add((new przedmiot("s85",800,161)));p.wszystkie_przedmioty.add((new przedmiot("s86",810,206)));p.wszystkie_przedmioty.add((new przedmiot("s87",820,366)));p.wszystkie_przedmioty.add((new przedmiot("s88",830,581)));p.wszystkie_przedmioty.add((new przedmiot("s89",840,546)));p.wszystkie_przedmioty.add((new przedmiot("s90",850,314)));p.wszystkie_przedmioty.add((new przedmiot("s91",860,273)));p.wszystkie_przedmioty.add((new przedmiot("s92",870,381)));p.wszystkie_przedmioty.add((new przedmiot("s93",880,323)));p.wszystkie_przedmioty.add((new przedmiot("s94",890,169)));p.wszystkie_przedmioty.add((new przedmiot("s95",900,255)));p.wszystkie_przedmioty.add((new przedmiot("s96",910,157)));p.wszystkie_przedmioty.add((new przedmiot("s97",920,253)));p.wszystkie_przedmioty.add((new przedmiot("s98",930,382)));p.wszystkie_przedmioty.add((new przedmiot("s99",940,109)));p.wszystkie_przedmioty.add((new przedmiot("s100",950,329)));p.wszystkie_przedmioty.add((new przedmiot("s101",960,359)));p.wszystkie_przedmioty.add((new przedmiot("s102",970,221)));p.wszystkie_przedmioty.add((new przedmiot("s103",980,175)));p.wszystkie_przedmioty.add((new przedmiot("s104",990,302)));p.wszystkie_przedmioty.add((new przedmiot("s105",1000,257)));
 
-        try {
-            aw =new algorytm_mrowkowy(p);
-
-            int punkty=aw.lista_wierzcholkow.size();
-            int r=280;
-            int i=0;
-
-            final int NUM_POINTS = 1000;
-            final double RADIUS = 100d;
-
-            for(wierzcholek w : aw.lista_wierzcholkow){
-
-                double t = 2 * Math.PI * i / aw.lista_wierzcholkow.size();
-                int x = (int) Math.round(sizex/2 + r * Math.cos(t));
-                int y = (int) Math.round(sizey/2 + r * Math.sin(t));
-
-                w.punkt=new Point2D(x, y);
-
-
-
-
-
-
-
-
-
-                nodes.add(w.punkt);
-                draw_nodes();
-                draw_road(sciezka, (int) 10, Color.BLUE, true, 3);
-
-                i++;
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            aw =new algorytm_mrowkowy(p);
+//
+//            int punkty=aw.lista_wierzcholkow.size();
+//            int r=280;
+//            int i=0;
+//
+//            final int NUM_POINTS = 1000;
+//            final double RADIUS = 100d;
+//
+//            for(wierzcholek w : aw.lista_wierzcholkow){
+//
+//                double t = 2 * Math.PI * i / aw.lista_wierzcholkow.size();
+//                int x = (int) Math.round(sizex/2 + r * Math.cos(t));
+//                int y = (int) Math.round(sizey/2 + r * Math.sin(t));
+//
+//                w.punkt=new Point2D(x, y);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//                nodes.add(w.punkt);
+//                draw_nodes();
+//                draw_road(sciezka, (int) 10, Color.BLUE, true, 3);
+//
+//                i++;
+//            }
+//
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 
         //suwaki
@@ -149,10 +155,10 @@ public class MainViewController implements Initializable{
         wartosc_q0.setText(String.format("%.2f", slider_q0.getValue()));
         wartosc_mrowki.setText(String.format("%d", (int) slider_mrowki.getValue()));
         wartosc_masa.setText(String.format("%d", (int)slider_masa.getValue()));
-
-
+        maxymalna.setText(String.format("%.2f",tau_max.getValue()) );
+        minimalna.setText(String.format("%.2f",tau_min.getValue()) );
         //choicebox
-        choicebox_feromon.getItems().addAll("staÅ‚y", "Å›redni","cykliczny");
+        choicebox_feromon.getItems().addAll("mrówkowy sta³y", "mrówkowy œredni","mrówkowy cykliczny","mrówkowy Max-Min","mrówkowy Elitarny","mrowiskowy");
         choicebox_feromon.getSelectionModel().selectFirst();
 
 
@@ -268,8 +274,49 @@ public class MainViewController implements Initializable{
 //                    runonupdate();
             }
         });
+        tau_max.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                                Number old_val, Number new_val) {
+                maxymalna.setText(String.format("%.2f", new_val));
+            }
+        });
 
+        tau_max.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean wasChanging, Boolean isNowChanging) {
+//                if (! isNowChanging)
+//                    runonupdate();
+            }
+        });
 
+        tau_min.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                                Number old_val, Number new_val) {
+                minimalna.setText(String.format("%.2f", new_val));
+            }
+        });
+
+        tau_min.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean wasChanging, Boolean isNowChanging) {
+//                if (! isNowChanging)
+//                    runonupdate();
+            }
+        });
+        slider_ilosc_cykil.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                                Number old_val, Number new_val) {
+                ilosc_cykli.setText(String.format("%.2f", new_val));
+            }
+        });
+
+        slider_ilosc_cykil.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean wasChanging, Boolean isNowChanging) {
+//                if (! isNowChanging)
+//                    runonupdate();
+            }
+        });
 
         long time_delta = 0; // time counting
         int n; // number of nodes
@@ -390,6 +437,69 @@ public class MainViewController implements Initializable{
         }
         return modified_road;
     }
+    @FXML
+    void start(ActionEvent event) {
+    	  double sizex = canvas.getWidth();
+          double sizey = canvas.getHeight();
+          ArrayList<Integer>sciezka = new ArrayList<Integer>(2);
 
 
+          for(int i=0;i<p.wszystkie_przedmioty.size()-1;i++){
+              sciezka.add(i);
+              sciezka.add(i+1);
+          }
+      	aw.poczatkowy_feromon =slider_pferomon.getValue();
+        aw.Rho =slider_rho.getValue();
+        aw.Beta =slider_beta.getValue();
+        aw.Alpha =slider_alfa.getValue();
+        aw.q0 =slider_q0.getValue();
+        aw.ilosc_mrowek=(int) slider_mrowki.getValue();
+        aw.ilosc_cykli=(int) slider_ilosc_cykil.getValue();
+        aw.min=tau_min.getValue();
+        aw.max=tau_max.getValue();
+        if(choicebox_feromon.getValue()=="mrowiskowy") { aw.system=0;}
+        if(choicebox_feromon.getValue()=="mrówkowy sta³y") { aw.system=1;}
+        if(choicebox_feromon.getValue()=="mrówkowy œredni") { aw.system=2;}
+        if(choicebox_feromon.getValue()=="mrówkowy cykliczny") { aw.system=3;}
+        if(choicebox_feromon.getValue()=="mrówkowy Max-Min") { aw.system=4;}
+        if(choicebox_feromon.getValue()=="mrówkowy Elitarny") { aw.system=5;}
+        try {
+            aw =new algorytm_mrowkowy(p);
+
+            int punkty=aw.lista_wierzcholkow.size();
+            int r=280;
+            int i=0;
+
+            final int NUM_POINTS = 1000;
+            final double RADIUS = 100d;
+
+            for(wierzcholek w : aw.lista_wierzcholkow){
+
+                double t = 2 * Math.PI * i / aw.lista_wierzcholkow.size();
+                int x = (int) Math.round(sizex/2 + r * Math.cos(t));
+                int y = (int) Math.round(sizey/2 + r * Math.sin(t));
+
+                w.punkt=new Point2D(x, y);
+
+
+
+
+
+
+
+
+
+                nodes.add(w.punkt);
+                draw_nodes();
+                draw_road(sciezka, (int) 10, Color.BLUE, true, 3);
+
+                i++;
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
 }
