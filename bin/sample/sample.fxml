@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="782.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
     <children>
-        <GridPane layoutX="399.0" layoutY="7.0" prefHeight="727.0" prefWidth="251.0">
+        <GridPane layoutX="399.0" layoutY="7.0" prefHeight="628.0" prefWidth="251.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="269.0" minWidth="10.0" prefWidth="151.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="3.0" prefWidth="19.0" />
@@ -95,7 +95,7 @@
             <Label fx:id="wartosc_g" text="0" GridPane.columnIndex="1" GridPane.rowIndex="21" />
             </children>
         </GridPane>
-      <GridPane layoutX="43.0" layoutY="575.0" prefHeight="166.0" prefWidth="258.0">
+      <GridPane layoutX="43.0" layoutY="490.0" prefHeight="166.0" prefWidth="258.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -124,7 +124,7 @@
             </GridPane>
          </children>
       </GridPane>
-      <TableView fx:id="tabelaprzedmiotow1" layoutX="714.0" layoutY="52.0" prefHeight="488.0" prefWidth="236.0">
+      <TableView fx:id="tabelaprzedmiotow1" layoutX="714.0" layoutY="52.0" prefHeight="428.0" prefWidth="236.0">
          <columns>
             <TableColumn fx:id="colnazwa1" prefWidth="75.0" text="nazwa" />
             <TableColumn fx:id="colmasa1" prefWidth="75.0" text="masa" />
@@ -132,7 +132,7 @@
          </columns>
       </TableView>
       <Label layoutX="54.0" layoutY="31.0" prefHeight="21.0" prefWidth="236.0" text="Wszystkie Przedmioty" />
-        <TableView fx:id="tabelaprzedmiotow" layoutX="54.0" layoutY="52.0" prefHeight="488.0" prefWidth="236.0">
+        <TableView fx:id="tabelaprzedmiotow" layoutX="54.0" layoutY="52.0" prefHeight="428.0" prefWidth="236.0">
             <columns>
                 <TableColumn fx:id="colnazwa" prefWidth="75.0" text="nazwa" />
                 <TableColumn fx:id="colmasa" prefWidth="75.0" text="masa" />
@@ -140,12 +140,12 @@
             </columns>
         </TableView>
         <Label layoutX="714.0" layoutY="31.0" prefHeight="21.0" prefWidth="236.0" text="Przedmioty  w optymalnym plecaku" />
-          <Button layoutX="455.0" layoutY="726.0" mnemonicParsing="false" onAction="#start" text="uruchom" />
-      <Label layoutX="714.0" layoutY="549.0" text="Najlepsze rozwiązanie " />
-      <Label layoutX="714.0" layoutY="608.0" prefHeight="21.0" prefWidth="138.0" text="Trafione rozwiązanie" />
-      <Label layoutX="714.0" layoutY="679.0" prefHeight="21.0" prefWidth="236.0" text="numer cyklu pierwszego trafienia" />
-      <TextField fx:id="rozw_najlepsze" layoutX="714.0" layoutY="577.0" prefHeight="31.0" prefWidth="183.0" />
-      <TextField fx:id="rozwi_traf" layoutX="714.0" layoutY="642.0" prefHeight="31.0" prefWidth="182.0" />
-      <TextField fx:id="roz_num" layoutX="714.0" layoutY="710.0" prefHeight="31.0" prefWidth="182.0" />
+          <Button layoutX="465.0" layoutY="643.0" mnemonicParsing="false" onAction="#start" text="uruchom" />
+      <Label layoutX="714.0" layoutY="480.0" text="Najlepsze rozwiązanie " />
+      <Label layoutX="714.0" layoutY="539.0" prefHeight="21.0" prefWidth="138.0" text="Trafione rozwiązanie" />
+      <Label layoutX="714.0" layoutY="610.0" prefHeight="21.0" prefWidth="236.0" text="numer cyklu pierwszego trafienia" />
+      <TextField fx:id="rozw_najlepsze" layoutX="714.0" layoutY="508.0" prefHeight="31.0" prefWidth="183.0" />
+      <TextField fx:id="rozwi_traf" layoutX="714.0" layoutY="573.0" prefHeight="31.0" prefWidth="182.0" />
+      <TextField fx:id="roz_num" layoutX="714.0" layoutY="641.0" prefHeight="31.0" prefWidth="182.0" />
     </children>
 </Pane>
