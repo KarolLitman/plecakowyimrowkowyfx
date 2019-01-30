@@ -84,70 +84,70 @@ public class MainViewController implements Initializable{
 
             @Override
             public void changed(ObservableValue<? extends String> observable, //
-                                String oldValue, String newValue) {
-                if (newValue == "mrowkowy staly") {
-                    slider_q0.setVisible(true);
-                    wartosc_q0.setVisible(true);
-                    slider_tau_max.setVisible(false);
-                    wartosc_max.setVisible(false);
-                    slider_tau_min.setVisible(false);
-                    wartosc_min.setVisible(false);
-                    slider_Q.setVisible(true);
-                    wartosc_g.setVisible(true);
+                    String oldValue, String newValue) {
+    if (newValue == "mrowkowy staly") {
+        slider_q0.setVisible(true);
+        wartosc_q0.setVisible(true);
+        slider_tau_max.setVisible(false);
+        wartosc_max.setVisible(false);
+        slider_tau_min.setVisible(false);
+        wartosc_min.setVisible(false);
+        slider_Q.setVisible(true);
+        wartosc_g.setVisible(true);
 
-                }
-                else if (newValue == "mrowkowy sredni") {
-                    slider_q0.setVisible(false);
-                    wartosc_q0.setVisible(false);
-                    slider_tau_max.setVisible(false);
-                    wartosc_max.setVisible(false);
-                    slider_tau_min.setVisible(false);
-                    wartosc_min.setVisible(false);
-                    slider_Q.setVisible(true);
-                    wartosc_g.setVisible(true);
-                }
-                else if (newValue == "mrowkowy cykliczny") {
-                    slider_q0.setVisible(false);
-                    wartosc_q0.setVisible(false);
-                    slider_tau_max.setVisible(true);
-                    wartosc_max.setVisible(true);
-                    slider_tau_min.setVisible(true);
-                    wartosc_min.setVisible(true);
-                    slider_Q.setVisible(true);
-                    wartosc_g.setVisible(true);
-                }
-                else if (newValue == "mrowkowy Max-Min") {
-                    slider_q0.setVisible(false);
-                    wartosc_q0.setVisible(false);
-                    slider_tau_max.setVisible(true);
-                    wartosc_max.setVisible(true);
-                    slider_tau_min.setVisible(true);
-                    wartosc_min.setVisible(true);
-                    slider_Q.setVisible(true);
-                    wartosc_g.setVisible(true);
-                }
-                else if (newValue == "mrowkowy Elitarny") {
-                	 slider_q0.setVisible(false);
-                     wartosc_q0.setVisible(false);
-                     slider_tau_max.setVisible(false);
-                     wartosc_max.setVisible(false);
-                     slider_tau_min.setVisible(false);
-                     wartosc_min.setVisible(false);
-                    slider_Q.setVisible(true);
-                    wartosc_g.setVisible(true);
-                }
-                else if (newValue == "mrowiskowy") {
-                    slider_q0.setVisible(true);
-                    wartosc_q0.setVisible(false);
-                    slider_tau_max.setVisible(false);
-                    wartosc_max.setVisible(false);
-                    slider_tau_min.setVisible(false);
-                    wartosc_min.setVisible(false);
-                   slider_Q.setVisible(false);
-                   wartosc_g.setVisible(false);
-                }
-            }
-        };
+    }
+    else if (newValue == "mrowkowy sredni") {
+        slider_q0.setVisible(false);
+        wartosc_q0.setVisible(false);
+        slider_tau_max.setVisible(false);
+        wartosc_max.setVisible(false);
+        slider_tau_min.setVisible(false);
+        wartosc_min.setVisible(false);
+        slider_Q.setVisible(true);
+        wartosc_g.setVisible(true);
+    }
+    else if (newValue == "mrowkowy cykliczny") {
+        slider_q0.setVisible(false);
+        wartosc_q0.setVisible(false);
+        slider_tau_max.setVisible(true);
+        wartosc_max.setVisible(true);
+        slider_tau_min.setVisible(true);
+        wartosc_min.setVisible(true);
+        slider_Q.setVisible(true);
+        wartosc_g.setVisible(true);
+    }
+    else if (newValue == "mrowkowy Max-Min") {
+        slider_q0.setVisible(false);
+        wartosc_q0.setVisible(false);
+        slider_tau_max.setVisible(true);
+        wartosc_max.setVisible(true);
+        slider_tau_min.setVisible(true);
+        wartosc_min.setVisible(true);
+        slider_Q.setVisible(true);
+        wartosc_g.setVisible(true);
+    }
+    else if (newValue == "mrowkowy Elitarny") {
+    	 slider_q0.setVisible(false);
+         wartosc_q0.setVisible(false);
+         slider_tau_max.setVisible(false);
+         wartosc_max.setVisible(false);
+         slider_tau_min.setVisible(false);
+         wartosc_min.setVisible(false);
+        slider_Q.setVisible(true);
+        wartosc_g.setVisible(true);
+    }
+    else if (newValue == "mrowiskowy") {
+        slider_q0.setVisible(true);
+        wartosc_q0.setVisible(false);
+        slider_tau_max.setVisible(false);
+        wartosc_max.setVisible(false);
+        slider_tau_min.setVisible(false);
+        wartosc_min.setVisible(false);
+       slider_Q.setVisible(false);
+       wartosc_g.setVisible(false);
+    }
+}
+};
         // Selected Item Changed.
         choicebox_feromon.getSelectionModel().selectedItemProperty().addListener(changeListener);
 
