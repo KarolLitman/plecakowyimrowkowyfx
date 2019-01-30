@@ -96,29 +96,29 @@ public class MainViewController implements Initializable{
 
                 }
                 else if (newValue == "mrowkowy sredni") {
-                    slider_q0.setVisible(true);
-                    slider_tau_max.setVisible(true);
-                    slider_tau_min.setVisible(true);
+                    slider_q0.setVisible(false);
+                    slider_tau_max.setVisible(false);
+                    slider_tau_min.setVisible(false);
                 }
                 else if (newValue == "mrowkowy cykliczny") {
-                    slider_q0.setVisible(true);
+                    slider_q0.setVisible(false);
                     slider_tau_max.setVisible(true);
                     slider_tau_min.setVisible(true);
                 }
                 else if (newValue == "mrowkowy Max-Min") {
-                    slider_q0.setVisible(true);
-                    slider_tau_max.setVisible(false);
-                    slider_tau_min.setVisible(false);
-                }
-                else if (newValue == "mrowkowy Elitarny") {
-                    slider_q0.setVisible(true);
-                    slider_tau_max.setVisible(true);
-                    slider_tau_min.setVisible(true);
-                }
-                else if (newValue == "mrowiskowy") {
                     slider_q0.setVisible(false);
                     slider_tau_max.setVisible(true);
                     slider_tau_min.setVisible(true);
+                }
+                else if (newValue == "mrowkowy Elitarny") {
+                    slider_q0.setVisible(false);
+                    slider_tau_max.setVisible(false);
+                    slider_tau_min.setVisible(false);
+                }
+                else if (newValue == "mrowiskowy") {
+                    slider_q0.setVisible(true);
+                    slider_tau_max.setVisible(false);
+                    slider_tau_min.setVisible(false);
                 }
             }
         };
