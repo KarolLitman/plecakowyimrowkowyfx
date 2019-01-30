@@ -6,8 +6,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.RowConstraints;
@@ -23,14 +21,11 @@ public class MainViewController implements Initializable{
 
 
     @FXML
-    private Canvas canvas;
 
     public TableView <przedmiot> tabelaprzedmiotow;
     public TableColumn <przedmiot, String> colnazwa;
     public TableColumn <przedmiot, Double> colmasa;
     public TableColumn <przedmiot, Double> colcena;
-    //    public Slider option_a;
-//    public Label value_a;
     public Slider slider_rho;
     public Slider slider_mrowki;
     public Slider slider_q0;
@@ -431,80 +426,80 @@ public class MainViewController implements Initializable{
     }
 
 
-    public void draw_nodes(){
-        int n = nodes.size();
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+//    public void draw_nodes(){
+//        int n = nodes.size();
+//        GraphicsContext gc = canvas.getGraphicsContext2D();
+//
+//        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+//
+//        for (int x = 0; x < n; x++) {
+//            Point2D node = aw.lista_wierzcholkow.get(x).punkt;
+//            String nazwa = aw.lista_wierzcholkow.get(x).przedmiot.getNazwa();
+//
+//            Float radius = 4.0f;
+//            gc.setStroke(Color.BLUE);
+//            gc.setLineWidth(1);
+//            gc.strokeOval(node.getX(), node.getY(), radius, radius);
+//            if(node.getX()>=canvas.getWidth()/2)
+//            {
+//                if(node.getY()>=canvas.getHeight()/2) {
+//                    gc.strokeText(nazwa,node.getX()+5,node.getY()+20);
+//                }else {gc.strokeText(nazwa,node.getX()+5,node.getY()-10);}
+//            }else {
+//                if(node.getY()>=canvas.getHeight()/2) {gc.strokeText(nazwa,node.getX()-20,node.getY()+20);}
+//                else{
+//                    gc.strokeText(nazwa,node.getX()-20,node.getY()-10);
+//                }}
+//        }
+//    }
 
-        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
-        for (int x = 0; x < n; x++) {
-            Point2D node = aw.lista_wierzcholkow.get(x).punkt;
-            String nazwa = aw.lista_wierzcholkow.get(x).przedmiot.getNazwa();
-
-            Float radius = 4.0f;
-            gc.setStroke(Color.BLUE);
-            gc.setLineWidth(1);
-            gc.strokeOval(node.getX(), node.getY(), radius, radius);
-            if(node.getX()>=canvas.getWidth()/2)
-            {
-                if(node.getY()>=canvas.getHeight()/2) {
-                    gc.strokeText(nazwa,node.getX()+5,node.getY()+20);
-                }else {gc.strokeText(nazwa,node.getX()+5,node.getY()-10);}
-            }else {
-                if(node.getY()>=canvas.getHeight()/2) {gc.strokeText(nazwa,node.getX()-20,node.getY()+20);}
-                else{
-                    gc.strokeText(nazwa,node.getX()-20,node.getY()-10);
-                }}
-        }
-    }
 
 
+//    public void draw_road(ArrayList<Integer> sciezka, int offset, Color color, boolean loop, int width) {
+//        ArrayList<Point2D> punkty_sciezka = modyfikuj_sciezke(sciezka, offset);
+//        int n = nodes.size();
+//        GraphicsContext gc = canvas.getGraphicsContext2D();
+//        gc.setStroke(color);
+//        gc.setLineWidth(width);
+//        for (int x = 1; x < 10; x++) {
+//            Point2D from = punkty_sciezka.get(x - 1);
+//            Point2D to = punkty_sciezka.get(x);
+//            gc.strokeLine(from.getX(), from.getY(), to.getX(), to.getY());
+//        }
+//        if (loop) {
+//            Point2D from = punkty_sciezka.get(0);
+//            Point2D to = punkty_sciezka.get(punkty_sciezka.size() - 1);
+//            gc.strokeLine(from.getX(), from.getY(), to.getX(), to.getY());
+//        }
+//    }
 
-    public void draw_road(ArrayList<Integer> sciezka, int offset, Color color, boolean loop, int width) {
-        ArrayList<Point2D> punkty_sciezka = modyfikuj_sciezke(sciezka, offset);
-        int n = nodes.size();
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setStroke(color);
-        gc.setLineWidth(width);
-        for (int x = 1; x < 10; x++) {
-            Point2D from = punkty_sciezka.get(x - 1);
-            Point2D to = punkty_sciezka.get(x);
-            gc.strokeLine(from.getX(), from.getY(), to.getX(), to.getY());
-        }
-        if (loop) {
-            Point2D from = punkty_sciezka.get(0);
-            Point2D to = punkty_sciezka.get(punkty_sciezka.size() - 1);
-            gc.strokeLine(from.getX(), from.getY(), to.getX(), to.getY());
-        }
-    }
-
-    public ArrayList<Point2D> modyfikuj_sciezke(ArrayList<Integer> sciezka, int offset) {
-        ArrayList<Point2D> modified_road = new ArrayList<Point2D>(algorytm_mrowkowy.ilosc_mrowek);
-        Point2D poprzedni_wierzcholek = nodes.get(sciezka.get(0));
-        Point2D nastepny_wierzcholek;
-        for (int x = 1; x < (aw.lista_wierzcholkow.size()-10); x++) {
-            if (x==p.wszystkie_przedmioty.size()) {
-                nastepny_wierzcholek = nodes.get(0);
-            } else{
-                nastepny_wierzcholek = nodes.get(0);
-            }
-            double delta_x = Math.abs(poprzedni_wierzcholek.getX() - nastepny_wierzcholek.getX());
-            double delta_y = Math.abs(poprzedni_wierzcholek.getY() - nastepny_wierzcholek.getY());
-            Point2D nowy_wierzcholek;
-            if (delta_x < delta_y) {
-                nowy_wierzcholek = new Point2D(poprzedni_wierzcholek.getX()-offset, poprzedni_wierzcholek.getY());
-            } else {
-                nowy_wierzcholek = new Point2D(poprzedni_wierzcholek.getX(), poprzedni_wierzcholek.getY()-offset);
-            }
-            modified_road.add(nowy_wierzcholek);
-            poprzedni_wierzcholek = nastepny_wierzcholek;
-        }
-        return modified_road;
-    }
+//    public ArrayList<Point2D> modyfikuj_sciezke(ArrayList<Integer> sciezka, int offset) {
+//        ArrayList<Point2D> modified_road = new ArrayList<Point2D>(algorytm_mrowkowy.ilosc_mrowek);
+//        Point2D poprzedni_wierzcholek = nodes.get(sciezka.get(0));
+//        Point2D nastepny_wierzcholek;
+//        for (int x = 1; x < (aw.lista_wierzcholkow.size()-10); x++) {
+//            if (x==p.wszystkie_przedmioty.size()) {
+//                nastepny_wierzcholek = nodes.get(0);
+//            } else{
+//                nastepny_wierzcholek = nodes.get(0);
+//            }
+//            double delta_x = Math.abs(poprzedni_wierzcholek.getX() - nastepny_wierzcholek.getX());
+//            double delta_y = Math.abs(poprzedni_wierzcholek.getY() - nastepny_wierzcholek.getY());
+//            Point2D nowy_wierzcholek;
+//            if (delta_x < delta_y) {
+//                nowy_wierzcholek = new Point2D(poprzedni_wierzcholek.getX()-offset, poprzedni_wierzcholek.getY());
+//            } else {
+//                nowy_wierzcholek = new Point2D(poprzedni_wierzcholek.getX(), poprzedni_wierzcholek.getY()-offset);
+//            }
+//            modified_road.add(nowy_wierzcholek);
+//            poprzedni_wierzcholek = nastepny_wierzcholek;
+//        }
+//        return modified_road;
+//    }
     @FXML
     void start(ActionEvent event) {
-    	  double sizex = canvas.getWidth();
-          double sizey = canvas.getHeight();
+
+
           ArrayList<Integer>sciezka = new ArrayList<Integer>(2);
 
 
@@ -540,25 +535,7 @@ public class MainViewController implements Initializable{
 
             for(wierzcholek w : aw.lista_wierzcholkow){
 
-                double t = 2 * Math.PI * i / aw.lista_wierzcholkow.size();
-                int x = (int) Math.round(sizex/2 + r * Math.cos(t));
-                int y = (int) Math.round(sizey/2 + r * Math.sin(t));
-
-                w.punkt=new Point2D(x, y);
-
-
-
-
-
-
-
-
-
                 nodes.add(w.punkt);
-                draw_nodes();
-                draw_road(sciezka, (int) 10, Color.BLUE, true, 3);
-
-                i++;
             }
 
 
