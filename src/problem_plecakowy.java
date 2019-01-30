@@ -8,8 +8,8 @@ class problem_plecakowy{
 
     public List<przedmiot> wszystkie_przedmioty = new ArrayList<>();
     public List<przedmiot> przedmioty_w_plecaku = new ArrayList<>();
-    double pozostala_masa=1000;
-    double pierwotna_masa=1000;
+    static int pierwotna_masa=1000;
+    double pozostala_masa=pierwotna_masa;
 
     public problem_plecakowy() {
 

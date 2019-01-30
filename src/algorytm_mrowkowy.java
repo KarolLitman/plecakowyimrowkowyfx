@@ -137,6 +137,7 @@ public class algorytm_mrowkowy {
 
                 tmp = m.rozwiazanie();
 
+
                 srednia_wartosc_cyklu += tmp;
                 if (tmp < minimalna_wartosc) {
                     minimalna_wartosc = tmp;
@@ -144,7 +145,9 @@ public class algorytm_mrowkowy {
                 if (tmp > maksymalna_wartosc) {
                     maksymalna_wartosc = tmp;
                     najlepsza_mrowka = m;
-
+                }
+                if(tmp==najlepsza_mrowka.rozwiazanie()){
+                    trafienia++;
                 }
             }
 
@@ -165,9 +168,7 @@ public class algorytm_mrowkowy {
                 trafienia=1;
                 pierwsze_trafienie=i;
             }
-            if(najlepsze_rozwiazanie==najlepsza_mrowka.rozwiazanie()){
-            trafienia++;
-            }
+
 
 
         }

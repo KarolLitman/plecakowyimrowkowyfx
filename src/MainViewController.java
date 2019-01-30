@@ -528,6 +528,8 @@ public class MainViewController implements Initializable{
         aw.min=slider_tau_min.getValue();
         aw.max=slider_tau_max.getValue();
         aw.Q=slider_Q.getValue();
+        problem_plecakowy.pierwotna_masa=(int) slider_masa.getValue();
+
         if(choicebox_feromon.getValue()=="mrowiskowy") { aw.system=0;}
         if(choicebox_feromon.getValue()=="mrowkowy staly") { aw.system=1;slider_q0.setDisable(true);}
         if(choicebox_feromon.getValue()=="mrowkowy sredni") { aw.system=2;}

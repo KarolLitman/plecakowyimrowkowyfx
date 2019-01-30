@@ -78,7 +78,7 @@
                 <Slider fx:id="slider_masa" max="10000.0" min="1.0" value="1000.0" GridPane.rowIndex="13" />
                 <ChoiceBox fx:id="choicebox_feromon" prefHeight="26.0" prefWidth="199.0" GridPane.rowIndex="23" />
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="183.0" text="jaki system" textFill="#3a23db" GridPane.rowIndex="22" />
-                <Slider fx:id="slider_mrowki" blockIncrement="1.0" min="1.0" value="1.0" GridPane.rowIndex="11" />
+                <Slider fx:id="slider_mrowki" blockIncrement="1.0" min="1.0" value="40.0" GridPane.rowIndex="11" />
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="183.0" text="maxmasa plecaka" textFill="#3a23db" GridPane.rowIndex="12">
                 </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="187.0" text="tau max" textFill="#3a23db" wrapText="true" GridPane.rowIndex="16" />
