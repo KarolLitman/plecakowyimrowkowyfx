@@ -55,20 +55,16 @@ public class MainViewController implements Initializable{
     public RowConstraints znikaq02;
     public Slider slider_Q;
     public Label wartosc_g;
+    public TextField rozw_najlepsze;
+    public TextField rozwi_traf;
+    public TextField roz_num;
 
 
 
-    @FXML
-    private TableView<?> tabelaprzedmiotow1;
-
-    @FXML
-    private TableColumn<?, ?> colnazwa1;
-
-    @FXML
-    private TableColumn<?, ?> colmasa1;
-
-    @FXML
-    private TableColumn<?, ?> colcena1;
+    public TableView <przedmiot> tabelaprzedmiotow1;
+    public TableColumn <przedmiot, String> colnazwa1;
+    public TableColumn <przedmiot, Double> colmasa1;
+    public TableColumn <przedmiot, Double> colcena1;
 
     algorytm_mrowkowy aw;
 
@@ -399,11 +395,12 @@ public class MainViewController implements Initializable{
 
         //add your data to the table here.
         tabelaprzedmiotow.setItems(lista);
-    }
+    
+}
 
 
-    ObservableList<przedmiot> lista = FXCollections.observableArrayList(
-    );
+ObservableList<przedmiot> lista = FXCollections.observableArrayList(
+);
 
 
 
@@ -526,17 +523,28 @@ public class MainViewController implements Initializable{
         try {
             aw =new algorytm_mrowkowy(p);
 
-            int punkty=aw.lista_wierzcholkow.size();
-            int r=280;
-            int i=0;
+            ObservableList<przedmiot> lista1 = FXCollections.observableArrayList(
+            );
+            lista1.addAll(p.przedmioty_w_plecaku);
+            //make sure the property value factory should be exactly same as the e.g getStudentId from your model class
+            colnazwa1.setCellValueFactory(new PropertyValueFactory<>("Nazwa"));
+            colmasa1.setCellValueFactory(new PropertyValueFactory<>("Masa"));
+            colcena1.setCellValueFactory(new PropertyValueFactory<>("Cena"));
 
-            final int NUM_POINTS = 1000;
-            final double RADIUS = 100d;
-
-            for(wierzcholek w : aw.lista_wierzcholkow){
-
-                nodes.add(w.punkt);
-            }
+            //add your data to the table here.
+            tabelaprzedmiotow.setItems(lista1);
+            
+//            int punkty=aw.lista_wierzcholkow.size();
+//            int r=280;
+//            int i=0;
+//
+//            final int NUM_POINTS = 1000;
+//            final double RADIUS = 100d;
+//
+//            for(wierzcholek w : aw.lista_wierzcholkow){
+//
+//                nodes.add(w.punkt);
+//            }
 
 
         } catch (Exception e) {
