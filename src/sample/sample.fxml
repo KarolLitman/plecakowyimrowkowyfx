@@ -8,13 +8,12 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
     <children>
         <GridPane layoutX="995.0" layoutY="49.0" prefHeight="456.0" prefWidth="170.0">
             <columnConstraints>
@@ -56,6 +55,14 @@
             <ColumnConstraints />
             <ColumnConstraints />
             <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
             </columnConstraints>
             <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -79,6 +86,74 @@
             <RowConstraints />
             <RowConstraints />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
             <RowConstraints />
             <RowConstraints />
             <RowConstraints />
@@ -223,6 +298,14 @@
             <ColumnConstraints />
             <ColumnConstraints />
             <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -245,6 +328,74 @@
                 <RowConstraints />
                 <RowConstraints />
                 <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
             <RowConstraints />
             <RowConstraints />
             <RowConstraints />
@@ -363,8 +514,8 @@
                 <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="337.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="337.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints fx:id="znikaq0" maxHeight="337.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                <RowConstraints fx:id="znikaq02" maxHeight="337.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="392.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="392.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="442.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -381,36 +532,23 @@
             <children>
                 <Slider fx:id="slider_alfa" blockIncrement="0.05" max="1.0" value="1.0" GridPane.rowIndex="1" />
                 <Label alignment="CENTER" prefHeight="10.0" prefWidth="182.0" text="alfa" textAlignment="CENTER" textFill="#3a23db">
-                    <tooltip>
-                        <Tooltip text="Initial pheromone value at each edge." />
-                    </tooltip>
+
             </Label>
                 <Slider fx:id="slider_beta" blockIncrement="0.25" max="10.0" value="1.0" GridPane.rowIndex="3" />
                 <Slider fx:id="slider_pferomon" blockIncrement="0.05" max="1.0" value="0.01" GridPane.rowIndex="5" />
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="185.0" text="beta" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="2">
-                    <tooltip>
-                        <Tooltip text="Number of ants." />
-                    </tooltip>
+
             </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="181.0" text="Rho" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="6">
-                    <tooltip>
-                        <Tooltip text="Quotient, defines nodes visibility to each other." />
-                    </tooltip>
+
             </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="189.0" text="pocz. ferom" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="4">
-                    <tooltip>
-                        <Tooltip text="Quotient: How pheromone is important, when ant selects next node?" />
-                    </tooltip>
+
             </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="179.0" text="q0" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="8">
-                    <tooltip>
-                        <Tooltip text="Number of pheromone, sprayed by each ant." />
-                    </tooltip>
             </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="185.0" text="ilosc mrowek" textAlignment="CENTER" textFill="#3a23db" GridPane.rowIndex="10">
-                    <tooltip>
-                        <Tooltip text="Quotient, defines pheromone disappearance. " />
-                    </tooltip>
+
             </Label>
                 <Slider fx:id="slider_rho" blockIncrement="0.05" max="1.0" value="0.01" GridPane.rowIndex="7" />
                 <Slider fx:id="slider_q0" blockIncrement="0.05" max="1.0" value="0.01" GridPane.rowIndex="9" />
@@ -429,12 +567,12 @@
                 </Label>
             <Label alignment="CENTER" prefHeight="21.0" prefWidth="187.0" text="tau max" textFill="#3a23db" wrapText="true" GridPane.rowIndex="16" />
             <Label alignment="CENTER" prefHeight="21.0" prefWidth="189.0" text="tau min" textFill="#3a23db" GridPane.rowIndex="18" />
-            <Slider fx:id="tau_max" blockIncrement="0.05" max="20.0" value="1.0" GridPane.rowIndex="17" />
-            <Slider fx:id="tau_min" blockIncrement="0.05" max="20.0" value="1.0" GridPane.rowIndex="19" />
-            <Label fx:id="maxymalna" prefHeight="21.0" prefWidth="7.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="17" />
-            <Label fx:id="minimalna" layoutX="205.0" layoutY="447.0" prefHeight="21.0" prefWidth="7.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+            <Slider fx:id="slider_tau_max" blockIncrement="0.05" max="20.0" value="1.0" GridPane.rowIndex="17" />
+            <Slider fx:id="slider_tau_min" blockIncrement="0.05" max="20.0" value="1.0" GridPane.rowIndex="19" />
+            <Label fx:id="wartosc_max" text="0" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+            <Label fx:id="wartosc_min" layoutX="205.0" layoutY="447.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="19" />
             <Label alignment="CENTER" prefHeight="21.0" prefWidth="195.0" text="ilość cykli" textFill="#3a23db" GridPane.rowIndex="14" />
-            <Slider fx:id="slider_ilosc_cykil" max="10000.0" min="3.0" value="4.0" GridPane.rowIndex="15" />
+            <Slider fx:id="slider_ilosc_cykli" max="10000.0" min="3.0" value="4.0" GridPane.rowIndex="15" />
             <Label fx:id="ilosc_cykli" text="0" GridPane.columnIndex="1" GridPane.rowIndex="15" />
             </children>
         </GridPane>

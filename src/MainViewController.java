@@ -10,6 +10,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
@@ -46,12 +47,18 @@ public class MainViewController implements Initializable{
     public Label wartosc_pferomon;
     public Slider slider_masa;
     public ChoiceBox choicebox_feromon;
-    public Label maxymalna;
-    public Label minimalna;
-    public Slider tau_max;
-    public Slider tau_min;
-    public Slider slider_ilosc_cykil;
+    public Slider slider_tau_max;
+    public Slider slider_tau_min;
+    public Slider slider_ilosc_cykli;
     public Label ilosc_cykli;
+
+    public Label wartosc_max;
+    public Label wartosc_min;
+
+
+    public RowConstraints znikaq0;
+    public RowConstraints znikaq02;
+
 
 
 
@@ -74,6 +81,49 @@ public class MainViewController implements Initializable{
     problem_plecakowy p;
 
     public void initialize(URL location, ResourceBundle resources) {
+
+
+
+        ChangeListener<String> changeListener = new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> observable, //
+                                String oldValue, String newValue) {
+                if (newValue == "mrowkowy staly") {
+                    slider_q0.setVisible(true);
+                    slider_tau_max.setVisible(false);
+                    slider_tau_min.setVisible(false);
+
+                }
+                else if (newValue == "mrowkowy sredni") {
+                    slider_q0.setVisible(true);
+                    slider_tau_max.setVisible(true);
+                    slider_tau_min.setVisible(true);
+                }
+                else if (newValue == "mrowkowy cykliczny") {
+                    slider_q0.setVisible(true);
+                    slider_tau_max.setVisible(true);
+                    slider_tau_min.setVisible(true);
+                }
+                else if (newValue == "mrowkowy Max-Min") {
+                    slider_q0.setVisible(true);
+                    slider_tau_max.setVisible(false);
+                    slider_tau_min.setVisible(false);
+                }
+                else if (newValue == "mrowkowy Elitarny") {
+                    slider_q0.setVisible(true);
+                    slider_tau_max.setVisible(true);
+                    slider_tau_min.setVisible(true);
+                }
+                else if (newValue == "mrowiskowy") {
+                    slider_q0.setVisible(false);
+                    slider_tau_max.setVisible(true);
+                    slider_tau_min.setVisible(true);
+                }
+            }
+        };
+        // Selected Item Changed.
+        choicebox_feromon.getSelectionModel().selectedItemProperty().addListener(changeListener);
 
 
         p=new problem_plecakowy();
@@ -155,10 +205,10 @@ public class MainViewController implements Initializable{
         wartosc_q0.setText(String.format("%.2f", slider_q0.getValue()));
         wartosc_mrowki.setText(String.format("%d", (int) slider_mrowki.getValue()));
         wartosc_masa.setText(String.format("%d", (int)slider_masa.getValue()));
-        maxymalna.setText(String.format("%.2f",tau_max.getValue()) );
-        minimalna.setText(String.format("%.2f",tau_min.getValue()) );
+        wartosc_max.setText(String.format("%.2f",slider_tau_max.getValue()) );
+        wartosc_min.setText(String.format("%.2f",slider_tau_min.getValue()) );
         //choicebox
-        choicebox_feromon.getItems().addAll("mrówkowy sta³y", "mrówkowy œredni","mrówkowy cykliczny","mrówkowy Max-Min","mrówkowy Elitarny","mrowiskowy");
+        choicebox_feromon.getItems().addAll("mrowkowy staly", "mrowkowy sredni","mrowkowy cykliczny","mrowkowy Max-Min","mrowkowy Elitarny","mrowiskowy");
         choicebox_feromon.getSelectionModel().selectFirst();
 
 
@@ -274,14 +324,14 @@ public class MainViewController implements Initializable{
 //                    runonupdate();
             }
         });
-        tau_max.valueProperty().addListener(new ChangeListener<Number>() {
+        slider_tau_max.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
-                maxymalna.setText(String.format("%.2f", new_val));
+                wartosc_max.setText(String.format("%.2f", new_val));
             }
         });
 
-        tau_max.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
+        slider_tau_max.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> obs, Boolean wasChanging, Boolean isNowChanging) {
 //                if (! isNowChanging)
@@ -289,28 +339,28 @@ public class MainViewController implements Initializable{
             }
         });
 
-        tau_min.valueProperty().addListener(new ChangeListener<Number>() {
+        slider_tau_min.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
-                minimalna.setText(String.format("%.2f", new_val));
+                wartosc_min.setText(String.format("%.2f", new_val));
             }
         });
 
-        tau_min.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
+        slider_tau_min.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> obs, Boolean wasChanging, Boolean isNowChanging) {
 //                if (! isNowChanging)
 //                    runonupdate();
             }
         });
-        slider_ilosc_cykil.valueProperty().addListener(new ChangeListener<Number>() {
+        slider_ilosc_cykli.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
-                ilosc_cykli.setText(String.format("%.2f", new_val));
+                ilosc_cykli.setText(String.format("%d", new_val.intValue()));
             }
         });
 
-        slider_ilosc_cykil.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
+        slider_ilosc_cykli.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> obs, Boolean wasChanging, Boolean isNowChanging) {
 //                if (! isNowChanging)
@@ -454,15 +504,15 @@ public class MainViewController implements Initializable{
         aw.Alpha =slider_alfa.getValue();
         aw.q0 =slider_q0.getValue();
         aw.ilosc_mrowek=(int) slider_mrowki.getValue();
-        aw.ilosc_cykli=(int) slider_ilosc_cykil.getValue();
-        aw.min=tau_min.getValue();
-        aw.max=tau_max.getValue();
+        aw.ilosc_cykli=(int) slider_ilosc_cykli.getValue();
+        aw.min=slider_tau_min.getValue();
+        aw.max=slider_tau_max.getValue();
         if(choicebox_feromon.getValue()=="mrowiskowy") { aw.system=0;}
-        if(choicebox_feromon.getValue()=="mrówkowy sta³y") { aw.system=1;}
-        if(choicebox_feromon.getValue()=="mrówkowy œredni") { aw.system=2;}
-        if(choicebox_feromon.getValue()=="mrówkowy cykliczny") { aw.system=3;}
-        if(choicebox_feromon.getValue()=="mrówkowy Max-Min") { aw.system=4;}
-        if(choicebox_feromon.getValue()=="mrówkowy Elitarny") { aw.system=5;}
+        if(choicebox_feromon.getValue()=="mrowkowy staly") { aw.system=1;slider_q0.setDisable(true);}
+        if(choicebox_feromon.getValue()=="mrowkowy sredni") { aw.system=2;}
+        if(choicebox_feromon.getValue()=="mrowkowy cykliczny") { aw.system=3;}
+        if(choicebox_feromon.getValue()=="mrowkowy Max-Min") { aw.system=4;}
+        if(choicebox_feromon.getValue()=="mrowkowy Elitarny") { aw.system=5;}
         try {
             aw =new algorytm_mrowkowy(p);
 
