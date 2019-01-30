@@ -260,6 +260,7 @@ public class algorytm_mrowkowy {
                         maksymalna_wartosc = tmp;
                         najlepsza_mrowka = m;
                         pierwsze_trafienie=j;
+                        trafienia=1;
                     }
                     if(tmp==maksymalna_wartosc){
                         trafienia++;
@@ -331,6 +332,8 @@ int elitarne_mrowki=0;
                     maksymalna_wartosc = tmp;
                     pierwsze_trafienie=j;
                     najlepsza_mrowka = m;
+                    trafienia=1;
+
                 }
                 if(tmp==maksymalna_wartosc){
                     trafienia++;

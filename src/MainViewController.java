@@ -210,6 +210,9 @@ public class MainViewController implements Initializable{
         wartosc_max.setText(String.format("%.2f",slider_tau_max.getValue()) );
         wartosc_min.setText(String.format("%.2f",slider_tau_min.getValue()) );
         wartosc_g.setText(String.format("%.2f",slider_Q.getValue()));
+        ilosc_cykli.setText(String.format("%d",(int)slider_ilosc_cykli.getValue()));
+
+
         //choicebox
         choicebox_feromon.getItems().addAll("mrowkowy staly", "mrowkowy sredni","mrowkowy cykliczny","mrowkowy Max-Min","mrowkowy Elitarny","mrowiskowy");
         choicebox_feromon.getSelectionModel().selectFirst();
@@ -364,7 +367,7 @@ public class MainViewController implements Initializable{
         });
         slider_ilosc_cykli.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
-                                Number old_val, Number new_val) {
+                                Number old_valg, Number new_val) {
                 ilosc_cykli.setText(String.format("%d", new_val.intValue()));
             }
         });

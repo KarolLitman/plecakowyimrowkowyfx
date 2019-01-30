@@ -12,13 +12,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Algorytm mrówkowy");
 
         ScrollPane s1 = new ScrollPane();
-        s1.setPrefSize(1012, 785);
+        s1.setPrefSize(1012, 720);
         s1.setContent(root);
 
-        primaryStage.setScene(new Scene(root, 1012, 785));
+        primaryStage.setScene(new Scene(root, 1012, 720));
         primaryStage.show();
     }
 
