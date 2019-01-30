@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -12,7 +13,12 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1012, 760));
+
+        ScrollPane s1 = new ScrollPane();
+        s1.setPrefSize(1012, 785);
+        s1.setContent(root);
+        
+        primaryStage.setScene(new Scene(root, 1012, 785));
         primaryStage.show();
     }
 
