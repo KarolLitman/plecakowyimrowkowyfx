@@ -58,7 +58,8 @@ public class MainViewController implements Initializable{
 
     public RowConstraints znikaq0;
     public RowConstraints znikaq02;
-
+    public Slider slider_Q;
+    public Label wartosc_g;
 
 
 
@@ -93,32 +94,38 @@ public class MainViewController implements Initializable{
                     slider_q0.setVisible(true);
                     slider_tau_max.setVisible(false);
                     slider_tau_min.setVisible(false);
+                    slider_Q.setVisible(true);
 
                 }
                 else if (newValue == "mrowkowy sredni") {
                     slider_q0.setVisible(false);
                     slider_tau_max.setVisible(false);
                     slider_tau_min.setVisible(false);
+                    slider_Q.setVisible(true);
                 }
                 else if (newValue == "mrowkowy cykliczny") {
                     slider_q0.setVisible(false);
                     slider_tau_max.setVisible(true);
                     slider_tau_min.setVisible(true);
+                    slider_Q.setVisible(true);
                 }
                 else if (newValue == "mrowkowy Max-Min") {
                     slider_q0.setVisible(false);
                     slider_tau_max.setVisible(true);
                     slider_tau_min.setVisible(true);
+                    slider_Q.setVisible(true);
                 }
                 else if (newValue == "mrowkowy Elitarny") {
                     slider_q0.setVisible(false);
                     slider_tau_max.setVisible(false);
                     slider_tau_min.setVisible(false);
+                    slider_Q.setVisible(true);
                 }
                 else if (newValue == "mrowiskowy") {
                     slider_q0.setVisible(true);
                     slider_tau_max.setVisible(false);
                     slider_tau_min.setVisible(false);
+                    slider_Q.setVisible(false);
                 }
             }
         };
@@ -207,6 +214,7 @@ public class MainViewController implements Initializable{
         wartosc_masa.setText(String.format("%d", (int)slider_masa.getValue()));
         wartosc_max.setText(String.format("%.2f",slider_tau_max.getValue()) );
         wartosc_min.setText(String.format("%.2f",slider_tau_min.getValue()) );
+        wartosc_g.setText(String.format("%.2f",slider_Q.getValue()));
         //choicebox
         choicebox_feromon.getItems().addAll("mrowkowy staly", "mrowkowy sredni","mrowkowy cykliczny","mrowkowy Max-Min","mrowkowy Elitarny","mrowiskowy");
         choicebox_feromon.getSelectionModel().selectFirst();
@@ -270,6 +278,12 @@ public class MainViewController implements Initializable{
             }
         });
 
+        slider_Q.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                                Number old_val, Number new_val) {
+                wartosc_g.setText(String.format("%.2f", new_val));
+            }
+        });
         slider_rho.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> obs, Boolean wasChanging, Boolean isNowChanging) {
@@ -507,6 +521,7 @@ public class MainViewController implements Initializable{
         aw.ilosc_cykli=(int) slider_ilosc_cykli.getValue();
         aw.min=slider_tau_min.getValue();
         aw.max=slider_tau_max.getValue();
+        aw.Q=slider_Q.getValue();
         if(choicebox_feromon.getValue()=="mrowiskowy") { aw.system=0;}
         if(choicebox_feromon.getValue()=="mrowkowy staly") { aw.system=1;slider_q0.setDisable(true);}
         if(choicebox_feromon.getValue()=="mrowkowy sredni") { aw.system=2;}
