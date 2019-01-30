@@ -11,7 +11,7 @@ public class algorytm_mrowkowy {
     static public double Alpha = 1;
     static public double q0 = 0.01;
     static public int ilosc_mrowek = 2;
-    static public int system=4;
+    static public int system=0;
     static public int ilosc_cykli=30;
 
 
@@ -38,7 +38,7 @@ public class algorytm_mrowkowy {
     ArrayList<wierzcholek> lista_wierzcholkow;
      mrowka[] mrowki;
      mrowka najlepsza_mrowka;
-     problem_plecakowy pp;
+    problem_plecakowy pp;
      double najlepsza_sciezka = 0;
 
 
@@ -65,8 +65,19 @@ public class algorytm_mrowkowy {
         }
 
 
+//System.out.println(lista_wierzcholkow);
+//System.out.println("Wartosc max: "+mrowka.wynik_max);
+//System.out.println("Wartosc srednia: "+ (mrowka.wynik_srednia/algorytm_mrowkowy.ilosc_mrowek));
+//System.out.println(mrowka.iteracje);
 
         this.pp=pp;
+
+
+    }
+
+
+    rozwiazanie wylicz_rozwiazanie() throws Exception {
+        rozwiazanie rozw = null;
 
         List<przedmiot> lista_przedmitow = pp.wszystkie_przedmioty;
         lista_wierzcholkow = new ArrayList<>();
@@ -83,27 +94,27 @@ public class algorytm_mrowkowy {
             mrowki[i] = new mrowka(lista_wierzcholkow);
         }
 
-if(system==0)
-        wykonaj();
-else
-wykonaj_mrowkowy();
+        if(system==0)
+           rozw=wykonaj();
+        else
+            rozw=wykonaj_mrowkowy();
 
 
-//System.out.println(lista_wierzcholkow);
-//System.out.println("Wartosc max: "+mrowka.wynik_max);
-//System.out.println("Wartosc srednia: "+ (mrowka.wynik_srednia/algorytm_mrowkowy.ilosc_mrowek));
-//System.out.println(mrowka.iteracje);
+        return rozw;
     }
 
 
-    void wykonaj() throws Exception {
+    rozwiazanie wykonaj() throws Exception {
+
+        int trafienia=0;
+        int pierwsze_trafienie=0;
+        int iteracja=0;
 
         double maksymalna_wartosc = Double.MIN_VALUE;
         double minimalna_wartosc = Double.MAX_VALUE;
         double srednia_wartosc_cyklu = 0;
         double najlepsze_rozwiazanie = 0;
 
-        int iteracja=0;
         double tmp;
 
         Random r=new Random();
@@ -133,8 +144,8 @@ wykonaj_mrowkowy();
                 if (tmp > maksymalna_wartosc) {
                     maksymalna_wartosc = tmp;
                     najlepsza_mrowka = m;
+
                 }
-                lokalny_feromon(m);
             }
 
 
@@ -151,12 +162,18 @@ wykonaj_mrowkowy();
 
             if(najlepsze_rozwiazanie<najlepsza_mrowka.rozwiazanie()){
                 najlepsze_rozwiazanie=najlepsza_mrowka.rozwiazanie();
-                iteracja=i;
+                trafienia=1;
+                pierwsze_trafienie=i;
+            }
+            if(najlepsze_rozwiazanie==najlepsza_mrowka.rozwiazanie()){
+            trafienia++;
             }
 
 
         }
         System.out.println("Najlepsze rozwiazanie "+ najlepsze_rozwiazanie+" cykl nr: "+iteracja);
+
+        return new rozwiazanie(najlepsza_mrowka.rozwiazanie(),trafienia,pierwsze_trafienie,najlepsza_mrowka.plecak);
 
     }
 
@@ -164,7 +181,10 @@ wykonaj_mrowkowy();
 
 
 
-    void wykonaj_mrowkowy() throws Exception {
+    rozwiazanie wykonaj_mrowkowy() throws Exception {
+
+        int trafienia=0;
+        int pierwsze_trafienie=0;
 
         //todo: zrobic fermon staly,sredni i cykliczny
         double maksymalna_wartosc = Double.MIN_VALUE;
@@ -239,6 +259,10 @@ wykonaj_mrowkowy();
                     if (tmp > maksymalna_wartosc) {
                         maksymalna_wartosc = tmp;
                         najlepsza_mrowka = m;
+                        pierwsze_trafienie=j;
+                    }
+                    if(tmp==maksymalna_wartosc){
+                        trafienia++;
                     }
 
                 }
@@ -305,11 +329,19 @@ int elitarne_mrowki=0;
                 tmp = m.rozwiazanie();
                 if (tmp > maksymalna_wartosc) {
                     maksymalna_wartosc = tmp;
+                    pierwsze_trafienie=j;
                     najlepsza_mrowka = m;
+                }
+                if(tmp==maksymalna_wartosc){
+                    trafienia++;
                 }
 
             }
             System.out.println(najlepsza_mrowka.rozwiazanie());
+
+
+
+
         }
 
 //        for (mrowka m : mrowki) {
@@ -319,6 +351,7 @@ int elitarne_mrowki=0;
 //        }
 
 
+        return new rozwiazanie(najlepsza_mrowka.rozwiazanie(),trafienia,pierwsze_trafienie,najlepsza_mrowka.plecak);
 
 
     }

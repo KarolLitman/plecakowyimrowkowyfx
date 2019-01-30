@@ -5,10 +5,19 @@ class problem_plecakowy{
 
 
 
+
     public List<przedmiot> wszystkie_przedmioty = new ArrayList<>();
     public List<przedmiot> przedmioty_w_plecaku = new ArrayList<>();
     double pozostala_masa=1000;
     double pierwotna_masa=1000;
+
+    public problem_plecakowy() {
+
+    }
+
+    public problem_plecakowy(List<przedmiot> przedmioty_w_plecaku) {
+        this.przedmioty_w_plecaku = przedmioty_w_plecaku;
+    }
 
     public String toString(){
         return przedmioty_w_plecaku+"";

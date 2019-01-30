@@ -23,6 +23,8 @@ public class MainViewController implements Initializable{
     @FXML
 
     public TableView <przedmiot> tabelaprzedmiotow;
+    public TableView <przedmiot> tabelaprzedmiotow1;
+
     public TableColumn <przedmiot, String> colnazwa;
     public TableColumn <przedmiot, Double> colmasa;
     public TableColumn <przedmiot, Double> colcena;
@@ -58,8 +60,6 @@ public class MainViewController implements Initializable{
 
 
 
-    @FXML
-    private TableView<?> tabelaprzedmiotow1;
 
     @FXML
     private TableColumn<?, ?> colnazwa1;
@@ -399,17 +399,25 @@ public class MainViewController implements Initializable{
 
         //add your data to the table here.
         tabelaprzedmiotow.setItems(lista);
+
     }
 
 
     ObservableList<przedmiot> lista = FXCollections.observableArrayList(
     );
-
+    ObservableList<przedmiot> lista2 = FXCollections.observableArrayList(
+    );
 
 
     public TextField textfieldMasa;
     public TextField textfieldPrzedmiot;
     public TextField textfieldCena;
+
+
+    public TextField rozw_najlepsze;
+    public TextField rozwi_traf;
+    public TextField roz_num;
+
 
     public void dodajprzedmiot(ActionEvent actionEvent) {
 
@@ -503,10 +511,10 @@ public class MainViewController implements Initializable{
           ArrayList<Integer>sciezka = new ArrayList<Integer>(2);
 
 
-          for(int i=0;i<p.wszystkie_przedmioty.size()-1;i++){
-              sciezka.add(i);
-              sciezka.add(i+1);
-          }
+//          for(int i=0;i<p.wszystkie_przedmioty.size()-1;i++){
+//              sciezka.add(i);
+//              sciezka.add(i+1);
+//          }
       	aw.poczatkowy_feromon =slider_pferomon.getValue();
         aw.Rho =slider_rho.getValue();
         aw.Beta =slider_beta.getValue();
@@ -524,14 +532,32 @@ public class MainViewController implements Initializable{
         if(choicebox_feromon.getValue()=="mrowkowy Max-Min") { aw.system=4;}
         if(choicebox_feromon.getValue()=="mrowkowy Elitarny") { aw.system=5;}
         try {
+            rozwiazanie rozw;
             aw =new algorytm_mrowkowy(p);
 
-            int punkty=aw.lista_wierzcholkow.size();
-            int r=280;
-            int i=0;
+rozw=aw.wylicz_rozwiazanie();
 
-            final int NUM_POINTS = 1000;
-            final double RADIUS = 100d;
+
+
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+
+            System.out.println(rozw);
+
+            colnazwa1.setCellValueFactory(new PropertyValueFactory<>("Nazwa"));
+            colmasa1.setCellValueFactory(new PropertyValueFactory<>("Masa"));
+            colcena1.setCellValueFactory(new PropertyValueFactory<>("Cena"));
+
+            tabelaprzedmiotow1.getItems().clear();
+
+            lista2.addAll(rozw.plecak.przedmioty_w_plecaku);
+            tabelaprzedmiotow1.setItems(lista2);
+            rozw_najlepsze.setText(""+rozw.najlepsze_rozwiazanie);
+            rozwi_traf.setText(""+rozw.trafionych_rozwiazan);
+            roz_num.setText(""+rozw.pierwsze_trafinie);
 
             for(wierzcholek w : aw.lista_wierzcholkow){
 
