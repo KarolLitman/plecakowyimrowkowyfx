@@ -11,7 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -95,6 +94,8 @@ public class MainViewController implements Initializable{
         wartosc_min.setVisible(false);
         slider_Q.setVisible(true);
         wartosc_g.setVisible(true);
+        slider_beta.setVisible(false);
+        wartosc_beta.setVisible(false);
 
     }
     else if (newValue == "mrowkowy sredni") {
@@ -106,16 +107,20 @@ public class MainViewController implements Initializable{
         wartosc_min.setVisible(false);
         slider_Q.setVisible(true);
         wartosc_g.setVisible(true);
+        slider_beta.setVisible(false);
+        wartosc_beta.setVisible(false);
     }
     else if (newValue == "mrowkowy cykliczny") {
         slider_q0.setVisible(false);
         wartosc_q0.setVisible(false);
-        slider_tau_max.setVisible(true);
-        wartosc_max.setVisible(true);
-        slider_tau_min.setVisible(true);
-        wartosc_min.setVisible(true);
+        slider_tau_max.setVisible(false);
+        wartosc_max.setVisible(false);
+        slider_tau_min.setVisible(false);
+        wartosc_min.setVisible(false);
         slider_Q.setVisible(true);
         wartosc_g.setVisible(true);
+        slider_beta.setVisible(false);
+        wartosc_beta.setVisible(false);
     }
     else if (newValue == "mrowkowy Max-Min") {
         slider_q0.setVisible(false);
@@ -126,6 +131,8 @@ public class MainViewController implements Initializable{
         wartosc_min.setVisible(true);
         slider_Q.setVisible(true);
         wartosc_g.setVisible(true);
+        slider_beta.setVisible(false);
+        wartosc_beta.setVisible(false);
     }
     else if (newValue == "mrowkowy Elitarny") {
     	 slider_q0.setVisible(false);
@@ -136,16 +143,20 @@ public class MainViewController implements Initializable{
          wartosc_min.setVisible(false);
         slider_Q.setVisible(true);
         wartosc_g.setVisible(true);
+        slider_beta.setVisible(false);
+        wartosc_beta.setVisible(false);
     }
     else if (newValue == "mrowiskowy") {
         slider_q0.setVisible(true);
-        wartosc_q0.setVisible(false);
+        wartosc_q0.setVisible(true);
         slider_tau_max.setVisible(false);
         wartosc_max.setVisible(false);
         slider_tau_min.setVisible(false);
         wartosc_min.setVisible(false);
        slider_Q.setVisible(false);
        wartosc_g.setVisible(false);
+       slider_beta.setVisible(true);
+       wartosc_beta.setVisible(true);
     }
 }
 };
@@ -235,8 +246,6 @@ public class MainViewController implements Initializable{
         wartosc_max.setText(String.format("%.2f",slider_tau_max.getValue()) );
         wartosc_min.setText(String.format("%.2f",slider_tau_min.getValue()) );
         wartosc_g.setText(String.format("%.2f",slider_Q.getValue()));
-        ilosc_cykli.setText(String.format("%d",(int)slider_ilosc_cykli.getValue()));
-
         //choicebox
         choicebox_feromon.getItems().addAll("mrowkowy staly", "mrowkowy sredni","mrowkowy cykliczny","mrowkowy Max-Min","mrowkowy Elitarny","mrowiskowy");
         choicebox_feromon.getSelectionModel().selectFirst();
@@ -562,40 +571,15 @@ public class MainViewController implements Initializable{
         if(choicebox_feromon.getValue()=="mrowkowy Elitarny") { aw.system=5;}
         try {
             rozwiazanie rozw;
+
 String tekst="";
 
 
-//parametry jakie
 
-            double[] arrayRefVar = {0.01,0.1,0.5,1.0,2.0};
+            aw =new algorytm_mrowkowy(p);
 
-            tekst+="algorytm/,mrowiskowy,staly,sredni,cykliczny,max-min,elitarny\n";
-            for(int k=0;k<arrayRefVar.length;k++){
+rozw=aw.wylicz_rozwiazanie();
 
-                //ustawiasz na dole jaki parametr obecnie beta
-
-                algorytm_mrowkowy.Beta=arrayRefVar[k];
-tekst+=arrayRefVar[k]+",";
-                for (int j=0;j<6;j++) {
-                int suma = 0;
-                    algorytm_mrowkowy.system=k;
-                    for (int i = 0; i < 10; i++) {
-                    aw = new algorytm_mrowkowy(p);
-
-                    rozw = aw.wylicz_rozwiazanie();
-                    suma += rozw.najlepsze_rozwiazanie;
-
-                }
-
-                suma = suma / 10;
-                tekst+=+suma+",";
-            }
-            tekst+="\n";
-            }
-
-            try (PrintWriter out = new PrintWriter("filename.txt")) {
-                out.println(tekst);
-            }
 
             System.out.println("");
             System.out.println("");
@@ -603,19 +587,19 @@ tekst+=arrayRefVar[k]+",";
             System.out.println("");
             System.out.println("");
 
-//            System.out.println(rozw);
+            System.out.println(rozw);
 
             colnazwa1.setCellValueFactory(new PropertyValueFactory<>("Nazwa"));
             colmasa1.setCellValueFactory(new PropertyValueFactory<>("Masa"));
             colcena1.setCellValueFactory(new PropertyValueFactory<>("Cena"));
 
             tabelaprzedmiotow1.getItems().clear();
-//
-//            lista2.addAll(rozw.plecak.przedmioty_w_plecaku);
-//            tabelaprzedmiotow1.setItems(lista2);
-//            rozw_najlepsze.setText(""+rozw.najlepsze_rozwiazanie);
-//            rozwi_traf.setText(""+rozw.trafionych_rozwiazan);
-//            roz_num.setText(""+rozw.pierwsze_trafinie);
+
+            lista2.addAll(rozw.plecak.przedmioty_w_plecaku);
+            tabelaprzedmiotow1.setItems(lista2);
+            rozw_najlepsze.setText(""+rozw.najlepsze_rozwiazanie);
+            rozwi_traf.setText(""+rozw.trafionych_rozwiazan);
+            roz_num.setText(""+rozw.pierwsze_trafinie);
 
             for(wierzcholek w : aw.lista_wierzcholkow){
 

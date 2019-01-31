@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
     <children>
         <GridPane layoutX="399.0" layoutY="7.0" prefHeight="628.0" prefWidth="251.0">
             <columnConstraints>
@@ -83,8 +83,8 @@
                 </Label>
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="187.0" text="tau max" textFill="#3a23db" wrapText="true" GridPane.rowIndex="16" />
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="189.0" text="tau min" textFill="#3a23db" GridPane.rowIndex="18" />
-                <Slider fx:id="slider_tau_max" blockIncrement="0.05" max="20.0" value="1.0" GridPane.rowIndex="17" />
-                <Slider fx:id="slider_tau_min" blockIncrement="0.05" max="20.0" value="1.0" GridPane.rowIndex="19" />
+                <Slider fx:id="slider_tau_max" blockIncrement="0.05" max="20.0" value="5.0" GridPane.rowIndex="17" />
+                <Slider fx:id="slider_tau_min" blockIncrement="0.05" max="20.0" value="0.05" GridPane.rowIndex="19" />
                 <Label fx:id="wartosc_max" text="0" GridPane.columnIndex="1" GridPane.rowIndex="17" />
                 <Label fx:id="wartosc_min" layoutX="205.0" layoutY="447.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="19" />
                 <Label alignment="CENTER" prefHeight="21.0" prefWidth="195.0" text="ilość cykli" textFill="#3a23db" GridPane.rowIndex="14" />

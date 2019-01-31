@@ -24,7 +24,7 @@ class wierzcholek implements Comparable<wierzcholek>{
 
     public double odleglosc()
     {
-        return this.przedmiot.getMasa()/this.przedmiot.getCena();
+        return this.przedmiot.getCena()/this.przedmiot.getMasa();
     }
 
 
