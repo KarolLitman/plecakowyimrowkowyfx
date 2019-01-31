@@ -34,21 +34,6 @@ static public int iteracje = 0;
 
 
 
-    void generuj_feromon(int sposob){
-//        https://www.ii.pwr.edu.pl/~kwasnicka/lindaabrichwww/description.html
-        switch (sposob) {
-            case 1:
-                System.out.println("gestosciowy");
-                break;
-            case 2:
-                System.out.println("ilosciowy");
-                break;
-            case 3:
-                System.out.println("cykliczny");
-                break;
-        }
-    }
-
     public void odwiedz_wierzcholek(wierzcholek w) throws Exception {
         odwiedzone_wierzcholki.add(w);
 
@@ -244,8 +229,21 @@ if (rozw>mrowka.wynik_max){
 //        System.out.println(plecak);
     }
 
+    double wylicz_droge(){
+        double suma=0;
+        for(wierzcholek w:odwiedzone_wierzcholki){
+            suma+=w.odleglosc();
+
+        }
+        return suma;
+    }
+
     public void reset()
     {
+
+        for(wierzcholek w:wszystkie_wierzcholki){
+            w.delta_tau=0.0;
+        }
        odwiedzone_wierzcholki.clear();
        plecak.przedmioty_w_plecaku.clear();
 
@@ -254,6 +252,7 @@ if (rozw>mrowka.wynik_max){
 
        czy_mrowka_zyje=true;
        dlugosc_trasy=0.0;
+
 
     }
 
