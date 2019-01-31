@@ -569,12 +569,13 @@ String tekst="";
 
             double[] arrayRefVar = {0.01,0.1,0.5,1.0,2.0};
 
+            tekst+="algorytm/,mrowiskowy,staly,sredni,cykliczny,max-min,elitarny\n";
             for(int k=0;k<arrayRefVar.length;k++){
 
                 //ustawiasz na dole jaki parametr obecnie beta
 
                 algorytm_mrowkowy.Beta=arrayRefVar[k];
-
+tekst+=arrayRefVar[k]+",";
                 for (int j=0;j<6;j++) {
                 int suma = 0;
                     algorytm_mrowkowy.system=k;
@@ -587,7 +588,7 @@ String tekst="";
                 }
 
                 suma = suma / 10;
-                tekst+=+suma+";";
+                tekst+=+suma+",";
             }
             tekst+="\n";
             }
